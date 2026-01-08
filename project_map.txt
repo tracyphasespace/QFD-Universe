@@ -1,0 +1,102 @@
+QFD-Universe/
+│
+├── README.md                    # Main documentation
+├── LLM_CONTEXT.md               # AI assistant guide (READ THIS FIRST)
+├── THEORY.md                    # Full theory documentation
+├── project_map.txt              # This file
+│
+├── formalization/               # LEAN4 PROOFS (Axiomatic Core)
+│   ├── QFD.lean                 # Main import file
+│   ├── lakefile.toml            # Build configuration
+│   └── QFD/
+│       ├── Constants/           # Fundamental constants
+│       │   ├── GoldenLoop.lean      # β derivation from α
+│       │   └── VacuumParameters.lean # MCMC validation
+│       ├── Leptons/             # Lepton physics
+│       │   ├── Generations.lean     # e, μ, τ structure
+│       │   ├── FineStructure.lean   # α-β bridge
+│       │   └── LeptonIsomers.lean   # Mass predictions
+│       ├── Nuclear/             # Nuclear physics
+│       │   ├── CoreCompressionLaw.lean  # Q = c₁A^(2/3) + c₂A
+│       │   ├── SaturationLimit.lean     # Bulk modulus
+│       │   └── VacuumStiffness.lean     # β physics
+│       ├── Soliton/             # Soliton mechanics
+│       │   ├── MassEnergyDensity.lean   # ρ ∝ v² proof
+│       │   └── TopologicalStability.lean
+│       ├── Cosmology/           # Astrophysics
+│       │   ├── PhotonScatteringKdV.lean # Redshift mechanism
+│       │   └── HubbleDrift.lean
+│       └── Atomic/              # Atomic physics
+│           ├── SpinOrbitChaos.lean
+│           └── LyapunovInstability.lean
+│
+├── simulation/                  # PYTHON SOLVERS (Computational)
+│   ├── src/
+│   │   ├── shared_constants.py      # SINGLE SOURCE OF TRUTH
+│   │   ├── hamiltonians/            # Physics modules
+│   │   └── solvers/                 # Numerical methods
+│   └── scripts/
+│       ├── QFD_ALPHA_DERIVED_CONSTANTS.py  # Golden Loop verification
+│       ├── derive_beta_from_alpha.py       # β solver
+│       ├── explore_beta_tension.py         # β visualization
+│       └── derive_hbar_from_topology.py    # ℏ from helicity
+│
+├── analysis/                    # DATA VERIFICATION (Empirical)
+│   ├── data/                    # Datasets
+│   │   └── (NUBASE2020, Pantheon+ - download separately)
+│   ├── src/
+│   │   ├── harmonic_model.py        # Nuclear harmonic modes
+│   │   ├── two_center_model.py      # Deformed nuclei
+│   │   └── parse_nubase.py          # Data parser
+│   └── scripts/
+│       ├── run_all_validations.py       # Conservation law
+│       ├── validate_g2_corrected.py     # g-2 prediction
+│       ├── validate_lepton_isomers.py   # Muon/tau masses
+│       ├── compare_models.py            # SNe Ia Hubble
+│       ├── derive_cmb_temperature.py    # CMB from photon decay
+│       └── hubble_validation_lean4.py   # Redshift validation
+│
+└── manuscript/                  # DOCUMENTATION
+    └── figures/
+        └── vortex_dynamics_visualization.html  # Interactive demo
+
+================================================================================
+KEY FILES FOR UNDERSTANDING QFD
+================================================================================
+
+1. START HERE:
+   - LLM_CONTEXT.md          → For AI assistants
+   - README.md               → For human reviewers
+   - THEORY.md               → Full theory
+
+2. THE BRIDGE (Single Source of Truth):
+   - simulation/src/shared_constants.py
+   - ALL Python scripts import from this file
+   - Shows: α → β → c₁ → c₂ derivation chain
+
+3. KEY LEAN4 PROOFS:
+   - formalization/QFD/GoldenLoop.lean        → β = 3.04309
+   - formalization/QFD/Lepton/FineStructure.lean → α-β-nuclear bridge
+   - formalization/QFD/Soliton/MassEnergyDensity.lean → ρ ∝ v²
+
+4. KEY VALIDATIONS:
+   - analysis/scripts/run_all_validations.py  → Conservation law 285/285
+   - analysis/scripts/validate_g2_corrected.py → g-2 within 0.45%
+   - analysis/scripts/compare_models.py       → SNe Ia model comparison
+
+================================================================================
+DEPENDENCY FLOW
+================================================================================
+
+    Lean4 Axioms ─────────────> Python shared_constants.py
+         │                              │
+         │                              ▼
+         │                     Python Solvers (simulation/)
+         │                              │
+         ▼                              ▼
+    Formal Proofs              Empirical Validation (analysis/)
+         │                              │
+         └──────────> CROSS-REFERENCE <─┘
+                     (theorem → script)
+
+================================================================================
