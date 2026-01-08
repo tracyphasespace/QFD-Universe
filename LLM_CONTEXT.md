@@ -1,6 +1,14 @@
 # LLM Context: Understanding QFD
 
-**READ THIS FIRST** - This file helps AI assistants understand and safely work with this repository.
+## Quick Access - Raw URLs (Fetch These First)
+
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/qfd_proof.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/simulation/src/shared_constants.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_conservation_law.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/GoldenLoop.lean
+```
 
 ---
 
