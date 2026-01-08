@@ -75,7 +75,15 @@ QFD-Universe/
 
 ## Quick Start
 
-### Prerequisites
+### Instant Validation (No Dependencies)
+
+```bash
+python3 qfd_proof.py
+```
+
+This single file proves the core claims using **only the Python standard library**. Copy-paste it into any Python REPL - no numpy, no scipy needed.
+
+### Full Validation Suite
 
 ```bash
 pip install numpy scipy pandas matplotlib
