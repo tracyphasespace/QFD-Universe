@@ -73,17 +73,13 @@ QFD-Universe/
 ├── manuscript/            # Documentation and figures
 │
 └── visualizations/        # Interactive HTML demos
-    ├── SolitonCanonPhoton2.HTML
-    ├── vortex_dynamics_visualization.html
-    └── DuffingOscillator.html
+    └── PhotonSolitonCanon.html
 ```
 
-### Interactive Visualizations
+### Interactive Visualization
 
-View QFD concepts in your browser (no installation):
-- [Soliton Photon Dynamics](https://tracyphasespace.github.io/QFD-Universe/visualizations/SolitonCanonPhoton2.HTML)
-- [Vortex Dynamics](https://tracyphasespace.github.io/QFD-Universe/visualizations/vortex_dynamics_visualization.html)
-- [Duffing Oscillator](https://tracyphasespace.github.io/QFD-Universe/visualizations/DuffingOscillator.html)
+View QFD photon soliton dynamics in your browser (no installation):
+- [Photon Soliton Canon](https://tracyphasespace.github.io/QFD-Universe/visualizations/PhotonSolitonCanon.html) - 3D WebGL visualization
 
 ---
 
