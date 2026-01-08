@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2025-2026 Tracy McSheery. All rights reserved.
-Released under MIT License (see repository LICENSE file).
-Authors: Tracy McSheery, with AI assistance
+Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
+Released under Apache 2.0 license.
+Authors: Tracy, Claude Sonnet 4.5
 
 # The Golden Loop: Analytic Derivation (Formalized)
 
@@ -125,7 +125,7 @@ noncomputable def K_target : ℝ := (alpha_inv_meas * c1_surface) / pi_sq_topo
 vacuum field circulation. The equation f(β) = K has a unique positive root.
 
 **Solution method**: Numerical root-finding (Newton-Raphson or similar)
-determines β = 3.058231 as the unique solution.
+determines β ≈ 3.043089 as the unique solution (derived from α).
 -/
 noncomputable def transcendental_equation (beta : ℝ) : ℝ :=
   (Real.exp beta) / beta

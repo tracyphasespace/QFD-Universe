@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2026 Quantum Field Dynamics. All rights reserved.
-Released under MIT License (see repository LICENSE file).
+Released under Apache 2.0 license.
 Authors: Tracy, Refactored for Rigor
 
 Density-Matched Topological Soliton (Skyrmed Q-Ball) Verification

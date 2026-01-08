@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under MIT License (see repository LICENSE file).
+Released under Apache 2.0 license.
 Authors: Tracy, Claude Sonnet 4.5
 
 # Nuclear Well Depth from Vacuum Stiffness
@@ -20,7 +20,7 @@ energy scales.
 
 where:
 - lam ≈ m_p = 938 MeV (vacuum stiffness scale)
-- beta = 3.058 (vacuum bulk modulus)
+- beta ≈ 3.043 (vacuum bulk modulus, derived from α)
 
 ## Numerical Validation
 

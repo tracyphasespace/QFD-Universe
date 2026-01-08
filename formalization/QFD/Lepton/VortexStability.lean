@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under MIT License (see repository LICENSE file).
+Released under Apache 2.0 license.
 Authors: Tracy
 
 # Vortex Stability: β-ξ Degeneracy Resolution
@@ -468,7 +468,7 @@ This theorem connects formal mathematics to numerical validation.
 theorem mcmc_validates_degeneracy_breaking :
     let β_mcmc := QFD.Vacuum.mcmcBeta  -- 3.0627
     let ξ_mcmc := QFD.Vacuum.mcmcXi    -- 0.9655
-    let β_golden := QFD.Vacuum.goldenLoopBeta  -- 3.058
+    let β_golden := QFD.Vacuum.goldenLoopBeta  -- 3.043 (derived from α)
     -- Correlation ≈ 0 proves degeneracy broken
     ∃ g : HillGeometry, ∃ R mass : ℝ,
       R > 0 ∧ mass > 0 ∧

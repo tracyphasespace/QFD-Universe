@@ -1,6 +1,6 @@
 /-
 Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under MIT License (see repository LICENSE file).
+Released under Apache 2.0 license.
 Authors: Tracy
 
 # Mass-Energy Density Equivalence
