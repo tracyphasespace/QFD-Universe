@@ -61,67 +61,62 @@ QFD derives fundamental constants from geometry rather than fitting them to data
 
 ---
 
-## Complete Derivation Code (No External Files Needed)
+## Complete Derivation Code (Zero Dependencies)
 
-This is the exact derivation logic. **No magic numbers** - only α as input:
+This is the exact derivation logic using **only Python stdlib** - no numpy, no scipy.
+Copy-paste into any Python REPL:
 
 ```python
-import numpy as np
-from scipy.optimize import brentq
+import math
 
-# =============================================================================
 # THE ONLY INPUT: Fine structure constant (CODATA 2018)
-# =============================================================================
-ALPHA = 1.0 / 137.035999206
 ALPHA_INV = 137.035999206
+ALPHA = 1.0 / ALPHA_INV
 
-# =============================================================================
-# GOLDEN LOOP: Solve 1/α = 2π² × (e^β / β) + 1 for β
-# =============================================================================
+# GOLDEN LOOP SOLVER: 1/α = 2π² × (e^β / β) + 1
 def solve_golden_loop():
-    """Solve the transcendental equation for β."""
-    K = (ALPHA_INV - 1) / (2 * np.pi**2)  # ≈ 6.8916
+    """Newton-Raphson solver - no scipy needed."""
+    y_target = ALPHA_INV - 1
+    const = 2 * (math.pi ** 2)
+    beta = 3.0  # Initial guess
 
-    def f(beta):
-        return np.exp(beta) / beta - K
+    for _ in range(20):
+        term = math.exp(beta) / beta
+        f_beta = const * term - y_target
+        f_prime = const * math.exp(beta) * (beta - 1) / (beta ** 2)
+        beta_new = beta - (f_beta / f_prime)
+        if abs(beta_new - beta) < 1e-12:
+            return beta_new
+        beta = beta_new
+    return beta
 
-    return brentq(f, 2.0, 4.0)  # Root in [2, 4]
+BETA = solve_golden_loop()  # = 3.043233
 
-BETA = solve_golden_loop()  # = 3.04309
+# DERIVED CONSTANTS (No free parameters)
+C1_SURFACE = 0.5 * (1 - ALPHA)  # = 0.496351 (nuclear surface)
+C2_VOLUME = 1.0 / BETA          # = 0.328598 (nuclear volume)
+V4_QED = -1.0 / BETA            # = -0.328598 (vacuum polarization)
 
-# =============================================================================
-# NUCLEAR COEFFICIENTS: Derived algebraically from α and β
-# =============================================================================
-C1_SURFACE = 0.5 * (1 - ALPHA)  # = 0.496351 (surface tension)
-C2_VOLUME = 1.0 / BETA          # = 0.328615 (bulk modulus)
-
-# =============================================================================
-# QED VACUUM POLARIZATION
-# =============================================================================
-V4_QED = -1.0 / BETA  # = -0.329 (matches Schwinger's -0.328)
-
-# =============================================================================
-# VALIDATION vs INDEPENDENT DATA
-# =============================================================================
-C1_EMPIRICAL = 0.496297   # From nuclear mass fits (NuBase 2020)
-C2_EMPIRICAL = 0.32704    # From nuclear mass fits
-A2_SCHWINGER = -0.328479  # From QED perturbation theory
+# INDEPENDENT EMPIRICAL VALUES (for comparison)
+C1_EMPIRICAL = 0.496297   # NuBase 2020 nuclear mass fits
+C2_EMPIRICAL = 0.32704    # NuBase 2020 nuclear mass fits
+V4_SCHWINGER = -0.328479  # QED perturbation theory
 
 print(f"β = {BETA:.6f}")
 print(f"c₁ error: {abs(C1_SURFACE - C1_EMPIRICAL)/C1_EMPIRICAL*100:.3f}%")
 print(f"c₂ error: {abs(C2_VOLUME - C2_EMPIRICAL)/C2_EMPIRICAL*100:.3f}%")
-print(f"V₄ error: {abs(V4_QED - A2_SCHWINGER)/abs(A2_SCHWINGER)*100:.2f}%")
+print(f"V₄ error: {abs(V4_QED - V4_SCHWINGER)/abs(V4_SCHWINGER)*100:.2f}%")
 ```
 
 **Output:**
 ```
-β = 3.043090
+β = 3.043233
 c₁ error: 0.011%
-c₂ error: 0.481%
-V₄ error: 0.45%
+c₂ error: 0.476%
+V₄ error: 0.04%
 ```
 
-**Key Point**: The empirical values (C1_EMPIRICAL, C2_EMPIRICAL, A2_SCHWINGER) are from completely independent experiments. QFD predicts them from α alone.
+**Key Point**: The empirical values are from completely independent experiments (nuclear masses, QED calculations). QFD predicts them from α alone with < 0.5% error.
 
 ---
 
