@@ -18,6 +18,38 @@
 
 ---
 
+## Raw File Links (For LLM Fetching)
+
+Copy-paste these URLs to fetch files directly:
+
+### Core Documentation
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
+```
+
+### Validation Scripts (Python)
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/qfd_proof.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/simulation/scripts/verify_golden_loop.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/simulation/scripts/derive_beta_from_alpha.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/simulation/src/shared_constants.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_conservation_law.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_g2_corrected.py
+```
+
+### Key Lean4 Proofs
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/GoldenLoop.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Soliton/HardWall.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Lepton/FineStructure.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Nuclear/CoreCompressionLaw.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Constants/VacuumParameters.lean
+```
+
+---
+
 ## Two-Repository Architecture
 
 QFD development uses two separate repositories:
