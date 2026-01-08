@@ -152,5 +152,6 @@ lake build QFD
 
 ## Contact
 
+- Author: Tracy McSheery
 - Repository: https://github.com/tracyphasespace/QFD-Universe
 - Issues: https://github.com/tracyphasespace/QFD-Universe/issues

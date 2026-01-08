@@ -184,7 +184,7 @@ Please open an issue or pull request.
 
 ```bibtex
 @software{qfd_universe,
-  author = {Tracy PhaseSpace},
+  author = {McSheery, Tracy},
   title = {QFD-Universe: Parameter-Free Quantum Field Dynamics},
   year = {2026},
   url = {https://github.com/tracyphasespace/QFD-Universe}

@@ -2,6 +2,9 @@
 """
 QFD Shared Constants - Single Source of Truth
 
+Copyright (c) 2026 Tracy McSheery
+Licensed under the MIT License
+
 All constants in this file are DERIVED from the fine structure constant α.
 NO FREE PARAMETERS - everything traces back to one measured value.
 
