@@ -28,8 +28,10 @@ QFD derives fundamental constants from geometry rather than fitting them to data
 Solving for β with α = 1/137.036:
 
 ```
-β = 3.04309  (vacuum stiffness - DERIVED, not fitted)
+β ≈ 3.043  (vacuum stiffness - DERIVED, not fitted)
 ```
+
+*Precise value: β = 3.043233 for α⁻¹ = 137.035999206*
 
 ### Zero Free Parameters
 

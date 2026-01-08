@@ -109,7 +109,9 @@ Copy-paste into any Python REPL:
 ```python
 import math
 
-# THE ONLY INPUT: Fine structure constant (CODATA 2018)
+# THE ONLY INPUT: Fine structure constant
+# Using α⁻¹ = 137.035999206 (between CODATA 2018 and 2022 values)
+# CODATA 2018: 137.035999084, CODATA 2022: 137.035999177
 ALPHA_INV = 137.035999206
 ALPHA = 1.0 / ALPHA_INV
 

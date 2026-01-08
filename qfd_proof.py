@@ -48,7 +48,9 @@ def solve_golden_loop(target_alpha_inv):
 
 def main():
     # =================================================================
-    # INPUT: CODATA 2018 Value (The ONLY input to the entire framework)
+    # INPUT: Fine structure constant (The ONLY input to the entire framework)
+    # Using α⁻¹ = 137.035999206 (between CODATA 2018 and 2022 values)
+    # CODATA 2018: 137.035999084, CODATA 2022: 137.035999177
     # =================================================================
     alpha_inv_exp = 137.035999206
     alpha = 1.0 / alpha_inv_exp
