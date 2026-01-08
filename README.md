@@ -70,8 +70,20 @@ QFD-Universe/
 │   ├── data/              # NUBASE2020, Pantheon+
 │   └── scripts/           # Validation scripts
 │
-└── manuscript/            # Documentation and figures
+├── manuscript/            # Documentation and figures
+│
+└── visualizations/        # Interactive HTML demos
+    ├── SolitonCanonPhoton2.HTML
+    ├── vortex_dynamics_visualization.html
+    └── DuffingOscillator.html
 ```
+
+### Interactive Visualizations
+
+View QFD concepts in your browser (no installation):
+- [Soliton Photon Dynamics](https://tracyphasespace.github.io/QFD-Universe/visualizations/SolitonCanonPhoton2.HTML)
+- [Vortex Dynamics](https://tracyphasespace.github.io/QFD-Universe/visualizations/vortex_dynamics_visualization.html)
+- [Duffing Oscillator](https://tracyphasespace.github.io/QFD-Universe/visualizations/DuffingOscillator.html)
 
 ---
 
