@@ -1,14 +1,18 @@
 # LLM Context: Understanding QFD
 
-## Quick Access - Raw URLs (Fetch These First)
+RAW URL INDEX (copy-paste these):
 
-```
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/qfd_proof.py
+
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md
+
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/simulation/src/shared_constants.py
+
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_conservation_law.py
+
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/GoldenLoop.lean
-```
 
 ---
 
