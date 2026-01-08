@@ -5,8 +5,15 @@ QFD Shared Constants - Single Source of Truth
 Copyright (c) 2026 Tracy McSheery
 Licensed under the MIT License
 
-All constants in this file are DERIVED from the fine structure constant α.
-NO FREE PARAMETERS - everything traces back to one measured value.
+This file contains two categories of constants:
+
+1. DERIVED CONSTANTS (from α alone):
+   - BETA, C1_SURFACE, C2_VOLUME, V4_QED
+   - These are the core QFD predictions with ZERO free parameters
+
+2. REFERENCE CONSTANTS (for unit conversion and comparison):
+   - SI units (c, ℏ, masses), empirical targets, H0
+   - These are NOT claimed to be derived - they're for validation/plotting
 
 Reference: Lean4 proofs in formalization/QFD/Constants/GoldenLoop.lean
 
@@ -91,11 +98,11 @@ XI_SURFACE_TENSION = 1.0  # Natural units
 V4_QED = -XI_SURFACE_TENSION / BETA  # ≈ -0.329
 
 # =============================================================================
-# PHYSICAL CONSTANTS (SI units)
+# REFERENCE CONSTANTS (SI units - NOT derived, for unit conversion only)
 # =============================================================================
 
 # Speed of light
-C_SI = 299792458.0  # m/s
+C_SI = 299792458.0  # m/s (defined exactly)
 
 # Planck constant
 HBAR_SI = 1.054571817e-34  # J·s
@@ -120,12 +127,13 @@ H0_SI = H0_KM_S_MPC * 1000 / MPC_TO_M  # s⁻¹
 KAPPA_MPC = H0_KM_S_MPC / (C_SI / 1000)  # Mpc⁻¹
 
 # =============================================================================
-# VALIDATION TARGETS (Independent measurements for comparison)
+# VALIDATION TARGETS (Independent measurements - NOT inputs to QFD)
+# These are used ONLY to compare QFD predictions against experiment
 # =============================================================================
 
 # Nuclear coefficients from NuBase 2020 (2,550 nuclei)
-C1_EMPIRICAL = 0.496297  # Fitted to nuclear data
-C2_EMPIRICAL = 0.32704   # Fitted to nuclear data
+C1_EMPIRICAL = 0.496297  # Fitted to nuclear data (independent of α)
+C2_EMPIRICAL = 0.32704   # Fitted to nuclear data (independent of α)
 
 # QED vacuum polarization from Feynman diagrams
 A2_QED_SCHWINGER = -0.328479  # From perturbation theory

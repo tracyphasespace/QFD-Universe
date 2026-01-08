@@ -8,7 +8,7 @@ This project request had uuid: 78dd9914-1e25-43e9-8698-63be06537e7b
 
 /-
 Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under Apache 2.0 license.
+Released under MIT License (see repository LICENSE file).
 Authors: Tracy, Claude Sonnet 4.5
 
 # Nuclear Fine Structure α_n from Vacuum Bulk Modulus

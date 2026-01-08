@@ -8,7 +8,7 @@ This project request had uuid: 0885ed14-2968-4798-a0a5-3b038f59bc76
 
 /-
 Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under Apache 2.0 license.
+Released under MIT License (see repository LICENSE file).
 Authors: Tracy, Claude Sonnet 4.5
 
 # Nuclear Asymmetry and Shielding Parameters from β

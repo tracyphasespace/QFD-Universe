@@ -85,11 +85,13 @@ python3 qfd_proof.py
 
 This single file proves the core claims using **only the Python standard library**. Copy-paste it into any Python REPL - no numpy, no scipy needed.
 
-### Full Validation Suite
+### Full Validation Suite (Requires Dependencies + Data)
 
 ```bash
-pip install numpy scipy pandas matplotlib
+pip install numpy scipy pandas matplotlib pyarrow
 ```
+
+**Note**: Some scripts require the NuBase 2020 data file (`analysis/data/derived/harmonic_scores.parquet`).
 
 ### 1. Verify the Golden Loop (α → β)
 

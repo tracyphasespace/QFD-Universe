@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2025 Quantum Field Dynamics. All rights reserved.
-Released under Apache 2.0 license.
-Authors: Tracy, Claude Sonnet 4.5
+Copyright (c) 2025-2026 Tracy McSheery. All rights reserved.
+Released under MIT License (see repository LICENSE file).
+Authors: Tracy McSheery, with AI assistance
 
 # The Golden Loop: Analytic Derivation (Formalized)
 
