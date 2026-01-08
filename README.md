@@ -8,6 +8,13 @@
 
 ---
 
+> **For AI Assistants**: Fetch the context file directly:
+> ```
+> https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
+> ```
+
+---
+
 ## Overview
 
 QFD derives fundamental constants from geometry rather than fitting them to data. Starting from a single measured value (the fine structure constant α), all nuclear and electromagnetic coefficients emerge through the **Golden Loop** transcendental equation.
