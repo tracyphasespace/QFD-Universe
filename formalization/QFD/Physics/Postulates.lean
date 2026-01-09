@@ -9,6 +9,7 @@ import Mathlib.Topology.Compactness.Compact
 import Mathlib.Order.Filter.Defs
 import Mathlib.Order.Filter.Cofinite
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+import Mathlib.Tactic.FieldSimp
 import QFD.Lepton.IsomerCore
 import QFD.Electron.HillVortex
 
@@ -233,6 +234,7 @@ structure MassState (p : SolitonParams) where
   is_bound : energy > 0
 
 open ContinuousMap
+open Set
 
 /-- The compactified spatial 3-sphere (physical space). -/
 abbrev Sphere3 : Type := Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1
@@ -366,7 +368,7 @@ structure SolitonPostulates extends Core where
   /-- Higher lepton generations have larger winding Q*. -/
   generation_qstar_order :
     ∀ {Point : Type} {M : QFD.LeptonModel Point}
-      {c₁ c₂ : Config Point}
+      {c₁ c₂ : Config}
       [Decidable (QFD.IsElectron M c₁)]
       [Decidable (QFD.IsMuon M c₁)]
       [Decidable (QFD.IsTau M c₁)]
@@ -380,7 +382,7 @@ structure SolitonPostulates extends Core where
 
   /-- Geometric mass formula linking Q*, β, and the mass scale. -/
   mass_formula :
-    ∀ {Point : Type} {M : QFD.LeptonModel Point} (c : Config Point),
+    ∀ {Point : Type} {M : QFD.LeptonModel Point} (c : Config),
       c.energy =
         (M.toQFDModelStable.toQFDModel.β * (M.Q_star c) ^ 2) * M.lam_mass
   -/
@@ -624,7 +626,7 @@ structure SolitonBoundaryPostulates extends TopologyPostulates where
   -/
   generation_qstar_order :
     ∀ {Point : Type} {M : QFD.LeptonModel Point}
-      {c₁ c₂ : Config Point}
+      {c₁ c₂ : Config}
       [Decidable (QFD.IsElectron M c₁)]
       [Decidable (QFD.IsMuon M c₁)]
       [Decidable (QFD.IsTau M c₁)]
@@ -638,7 +640,7 @@ structure SolitonBoundaryPostulates extends TopologyPostulates where
 
   /-- Geometric mass formula linking Q\*, β, and the mass scale. -/
   mass_formula :
-    ∀ {Point : Type} {M : QFD.LeptonModel Point} (c : Config Point),
+    ∀ {Point : Type} {M : QFD.LeptonModel Point} (c : Config),
       c.energy =
         (M.toQFDModelStable.toQFDModel.β * (M.Q_star c) ^ 2) * M.lam_mass
 
@@ -659,9 +661,52 @@ convex analysis: for concave functions f, f(a+b) > f(a) + f(b) when scaled appro
 For `x^p` with `0 < p < 1`, the function is strictly concave on `(0, ∞)`, giving
 `(a + b)^p < a^p + b^p` for positive a, b.
 -/
-axiom rpow_strict_subadd
+theorem rpow_strict_subadd
     (a b p : ℝ) (ha : 0 < a) (hb : 0 < b) (hp_pos : 0 < p) (hp_lt_one : p < 1) :
-    (a + b) ^ p < a ^ p + b ^ p
+    (a + b) ^ p < a ^ p + b ^ p := by
+  -- Standard concavity result: for 0 < p < 1, x^p is strictly concave on (0,∞)
+  -- Proof: Apply strict concavity at points (a+b, 0) with weights (a/(a+b), b/(a+b))
+  have hconc : StrictConcaveOn ℝ (Set.Ici (0 : ℝ)) (fun x => x ^ p) :=
+    Real.strictConcaveOn_rpow hp_pos hp_lt_one
+  have hab : 0 < a + b := add_pos ha hb
+  have h0_mem : (0 : ℝ) ∈ Set.Ici (0 : ℝ) := Set.left_mem_Ici
+  have hab_mem : a + b ∈ Set.Ici (0 : ℝ) := le_of_lt hab
+  have hne_ab : a + b ≠ 0 := ne_of_gt hab
+  have hp_ne : p ≠ 0 := ne_of_gt hp_pos
+  -- Define weights: wa = a/(a+b), wb = b/(a+b)
+  set wa := a / (a + b) with hwa_def
+  set wb := b / (a + b) with hwb_def
+  have hwa_pos : 0 < wa := div_pos ha hab
+  have hwb_pos : 0 < wb := div_pos hb hab
+  have hw_sum : wa + wb = 1 := by
+    simp only [hwa_def, hwb_def]
+    field_simp
+  -- Key fact: wa * (a + b) = a
+  have hwa_simp : wa * (a + b) = a := by
+    simp only [hwa_def]
+    field_simp
+  -- Key fact: wb * (a + b) = b
+  have hwb_simp : wb * (a + b) = b := by
+    simp only [hwb_def]
+    field_simp
+  -- Apply strict concavity: wa · f(a+b) + wb · f(0) < f(wa · (a+b) + wb · 0)
+  have hconc_ineq := hconc.2 hab_mem h0_mem hne_ab hwa_pos hwb_pos hw_sum
+  -- Simplify using f(0) = 0 and wa * (a+b) = a
+  simp only [Real.zero_rpow hp_ne, smul_eq_mul, mul_zero, add_zero] at hconc_ineq
+  -- Now hconc_ineq : wa * (a + b)^p < (wa * (a + b))^p
+  -- Using hwa_simp: this becomes wa * (a+b)^p < a^p
+  rw [hwa_simp] at hconc_ineq
+  -- Similarly for b
+  have hw_sum' : wb + wa = 1 := by rw [add_comm]; exact hw_sum
+  have hconc_ineq' := hconc.2 hab_mem h0_mem hne_ab hwb_pos hwa_pos hw_sum'
+  simp only [Real.zero_rpow hp_ne, smul_eq_mul, mul_zero, add_zero] at hconc_ineq'
+  rw [hwb_simp] at hconc_ineq'
+  -- Add the two inequalities
+  have h_add := add_lt_add hconc_ineq hconc_ineq'
+  -- Left side simplifies to (a+b)^p since wa + wb = 1
+  calc (a + b) ^ p = (wa + wb) * (a + b) ^ p := by rw [hw_sum, one_mul]
+    _ = wa * (a + b) ^ p + wb * (a + b) ^ p := by ring
+    _ < a ^ p + b ^ p := h_add
 
 /--
 Numerical bound connecting measured constants (ℏ, Γ, λ, c) to the nuclear core size.
@@ -753,27 +798,84 @@ axiom kdv_phase_drag_interaction :
 Rayleigh scattering: cross-section proportional to λ^(-4).
 Source: `Hydrogen/PhotonScattering.lean`
 -/
-axiom rayleigh_scattering_wavelength_dependence :
-  ∀ (λ : ℝ) (h_pos : λ > 0),
-    ∃ (σ k : ℝ), k > 0 ∧ σ = k * λ^(-4 : ℤ)
+theorem rayleigh_scattering_wavelength_dependence :
+  ∀ (lam : ℝ) (h_pos : lam > 0),
+    ∃ (σ k : ℝ), k > 0 ∧ σ = k * lam^(-4 : ℤ) := by
+  intro lam _h_pos
+  refine ⟨1 * lam^(-4 : ℤ), 1, by norm_num, rfl⟩
 
 /--
 Raman shift measures molecular vibration energy.
 Source: `Hydrogen/PhotonScattering.lean`
 -/
-axiom raman_shift_measures_vibration :
+theorem raman_shift_measures_vibration :
   ∀ (E_in E_out : ℝ) (h_stokes : E_in > E_out),
-    ∃ (E_vib : ℝ), E_vib = E_in - E_out ∧ E_vib > 0
+    ∃ (E_vib : ℝ), E_vib = E_in - E_out ∧ E_vib > 0 := by
+  intro E_in E_out h_stokes
+  refine ⟨E_in - E_out, rfl, ?_⟩
+  linarith
 
 /-! ### Lepton Prediction Axioms -/
 
 /--
 Golden Loop g-2 prediction accuracy: |predicted - SM| < 0.5%.
 Source: `Lepton/LeptonG2Prediction.lean`
+
+Proof: Pure interval arithmetic.
+- β ∈ (3.062, 3.064) and ξ ∈ (0.997, 0.999)
+- Therefore -ξ/β ∈ (-0.999/3.062, -0.997/3.064) ≈ (-0.3263, -0.3254)
+- Target: -0.328478965
+- Max deviation: |−0.3254 − (−0.3285)| ≈ 0.0031 < 0.005 ✓
 -/
-axiom golden_loop_prediction_accuracy :
+theorem golden_loop_prediction_accuracy :
   ∀ (β ξ : ℝ) (h_beta : abs (β - 3.063) < 0.001) (h_xi : abs (ξ - 0.998) < 0.001),
-    abs (-ξ/β - (-0.328478965)) < 0.005
+    abs (-ξ/β - (-0.328478965)) < 0.005 := by
+  intro β ξ h_beta h_xi
+  -- Extract bounds from absolute value hypotheses
+  have hβ_bounds := abs_lt.mp h_beta
+  have hξ_bounds := abs_lt.mp h_xi
+  -- β ∈ (3.062, 3.064), ξ ∈ (0.997, 0.999)
+  have hβ_lo : 3.062 < β := by linarith
+  have hβ_hi : β < 3.064 := by linarith
+  have hξ_lo : 0.997 < ξ := by linarith
+  have hξ_hi : ξ < 0.999 := by linarith
+  have hβ_pos : 0 < β := by linarith
+  have hξ_pos : 0 < ξ := by linarith
+  -- Rewrite goal: |ξ/β - 0.328478965| < 0.005
+  rw [show -ξ/β - (-0.328478965) = 0.328478965 - ξ/β by ring]
+  rw [abs_sub_comm]
+  -- Need: |ξ/β - 0.328478965| < 0.005
+  -- ξ/β is bounded: 0.997/3.064 < ξ/β < 0.999/3.062
+  have h_ratio_lo : 0.997 / 3.064 < ξ / β := by
+    have h1 : 0.997 / 3.064 < 0.997 / β := by
+      apply div_lt_div_of_pos_left
+      · norm_num
+      · exact hβ_pos
+      · exact hβ_hi
+    have h2 : 0.997 / β < ξ / β := by
+      apply div_lt_div_of_pos_right hξ_lo hβ_pos
+    linarith
+  have h_ratio_hi : ξ / β < 0.999 / 3.062 := by
+    have h1 : ξ / β < 0.999 / β := by
+      apply div_lt_div_of_pos_right hξ_hi hβ_pos
+    have h2 : 0.999 / β < 0.999 / 3.062 := by
+      apply div_lt_div_of_pos_left
+      · norm_num
+      · norm_num
+      · exact hβ_lo
+    linarith
+  -- 0.997/3.064 ≈ 0.3253, 0.999/3.062 ≈ 0.3263
+  -- Both within 0.005 of 0.328478965
+  rw [abs_lt]
+  constructor
+  · -- ξ/β - 0.328478965 > -0.005
+    have : ξ / β > 0.997 / 3.064 := h_ratio_lo
+    have h1 : (0.997 : ℝ) / 3.064 > 0.323 := by norm_num
+    linarith
+  · -- ξ/β - 0.328478965 < 0.005
+    have : ξ / β < 0.999 / 3.062 := h_ratio_hi
+    have h2 : (0.999 : ℝ) / 3.062 < 0.327 := by norm_num
+    linarith
 
 /-! ### Nuclear Energy Minimization Axioms -/
 
@@ -781,9 +883,14 @@ axiom golden_loop_prediction_accuracy :
 Energy minimization equilibrium: ∂E/∂Z = 0 determines equilibrium charge.
 Source: `Nuclear/SymmetryEnergyMinimization.lean`
 -/
-axiom energy_minimization_equilibrium :
-  ∀ (β A : ℝ) (h_beta : β > 0) (h_A : A > 0),
-    ∃ (Z_eq : ℝ), 0 ≤ Z_eq ∧ Z_eq ≤ A
+theorem energy_minimization_equilibrium :
+  ∀ (β A : ℝ) (_h_beta : β > 0) (h_A : A > 0),
+    ∃ (Z_eq : ℝ), 0 ≤ Z_eq ∧ Z_eq ≤ A := by
+  intro β A _h_beta h_A
+  -- Choose Z_eq = A/2, which satisfies 0 ≤ A/2 ≤ A when A > 0
+  refine ⟨A / 2, ?_, ?_⟩
+  · linarith
+  · linarith
 
 /--
 c₂ from β minimization: asymptotic charge fraction approaches 1/β.
@@ -801,16 +908,17 @@ axiom c2_from_beta_minimization :
 Soliton admissibility: Ricker wavelet amplitude stays within vacuum bounds.
 Source: `Soliton/HardWall.lean`
 -/
-axiom soliton_always_admissible :
-  ∀ (v₀ A : ℝ) (h_v₀ : v₀ > 0) (h_A : A > 0),
+theorem soliton_always_admissible :
+  ∀ (v₀ A : ℝ) (_h_v₀ : v₀ > 0) (_h_A : A > 0),
     -- Ricker minimum ≈ -0.446 A, so need A < v₀ / 0.446 for admissibility
-    A < v₀ / 0.446 → True  -- Simplified: full version in HardWall.lean
+    A < v₀ / 0.446 → True := by  -- Simplified: full version in HardWall.lean
+  intro _ _ _ _ _
+  trivial
 
 /-!
 ## Axiom Inventory
 
-### Centralized Here (16 standalone + ~43 structure fields):
-- `rpow_strict_subadd` - Concavity of x^p for 0<p<1
+### Centralized Here (10 standalone + ~43 structure fields):
 - `numerical_nuclear_scale_bound` - L₀ ≈ 1.25×10⁻¹⁶ m
 - `shell_theorem_timeDilation` - Harmonic exterior → 1/r decay
 - `v4_from_vacuum_hypothesis` - Nuclear well depth from β
@@ -820,12 +928,15 @@ axiom soliton_always_admissible :
 - `golden_loop_identity` - β predicts c₂
 - `python_root_finding_beta` - Numerical root finding
 - `kdv_phase_drag_interaction` - Photon energy transfer
-- `rayleigh_scattering_wavelength_dependence` - λ^(-4) scattering
-- `raman_shift_measures_vibration` - Vibrational spectroscopy
-- `golden_loop_prediction_accuracy` - g-2 prediction
-- `energy_minimization_equilibrium` - Nuclear equilibrium
 - `c2_from_beta_minimization` - Asymptotic charge fraction
-- `soliton_always_admissible` - Ricker admissibility
+
+### Recently Proven (converted from axioms):
+- `golden_loop_prediction_accuracy` - g-2 prediction (interval arithmetic)
+- `rpow_strict_subadd` - Concavity of x^p for 0<p<1 (convex analysis)
+- `rayleigh_scattering_wavelength_dependence` - λ^(-4) scattering (trivial existence)
+- `raman_shift_measures_vibration` - Vibrational spectroscopy (energy conservation)
+- `energy_minimization_equilibrium` - Nuclear equilibrium (trivial Z_eq = A/2)
+- `soliton_always_admissible` - Ricker admissibility (concludes True)
 
 ### In Model Structure (via extends chain):
 - TopologyPostulates: winding_number, degree_homotopy_invariant, vacuum_winding
