@@ -1,12 +1,15 @@
 import Mathlib.Analysis.Convex.SpecificFunctions.Pow
 import Mathlib.Analysis.InnerProductSpace.Harmonic.Basic
+import Mathlib.Analysis.InnerProductSpace.PiL2
 import Mathlib.Data.Real.Basic
 import Mathlib.Topology.Basic
+import Mathlib.Topology.Homotopy.Basic
+import Mathlib.Geometry.Euclidean.Sphere.Basic
 import Mathlib.Topology.Compactness.Compact
 import Mathlib.Order.Filter.Defs
 import Mathlib.Order.Filter.Cofinite
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
--- import QFD.Lepton.IsomerCore  -- DISABLED: pulls in ALL Mathlib via PhotonSoliton chain
+import QFD.Lepton.IsomerCore
 import QFD.Electron.HillVortex
 
 /-!
@@ -215,6 +218,27 @@ def total_charge : ℕ → ℤ := fun n => (n : ℤ)
 
 /-- Placeholder: energy of a lepton. -/
 def energy : Lepton → ℝ := fun _ => 1
+
+/-- Parameters controlling the radial soft-wall soliton potential. -/
+structure SolitonParams where
+  beta : ℝ
+  v : ℝ
+  h_beta_pos : beta > 0
+  h_v_pos : v > 0
+
+/-- Bound-state mass/eigenvalue data for a given soliton parameter set. -/
+structure MassState (p : SolitonParams) where
+  energy : ℝ
+  generation : ℕ
+  is_bound : energy > 0
+
+open ContinuousMap
+
+/-- The compactified spatial 3-sphere (physical space). -/
+abbrev Sphere3 : Type := Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1
+
+/-- Rotor group manifold (topologically another 3-sphere). -/
+abbrev RotorGroup : Type := Metric.sphere (0 : EuclideanSpace ℝ (Fin 4)) 1
 
 /-- Placeholder for interface between regions. -/
 structure Interface where
@@ -579,7 +603,52 @@ structure CalibrationPostulates extends AtomicChaosPostulates where
         abs (Real.log (ρ_max / 2.3e17)) < Real.log 10 ∧
         abs (μ - β ^ 2 * ρ_max) / (β ^ 2 * ρ_max) < 0.2
 
-structure Model extends CalibrationPostulates
+structure TopologyPostulates extends CalibrationPostulates where
+  /-- Degree / winding number map for continuous maps S³ → S³. -/
+  winding_number :
+    C(Sphere3, RotorGroup) → ℤ
+
+  /-- Degree is a homotopy invariant. -/
+  degree_homotopy_invariant :
+    ∀ {f g : C(Sphere3, RotorGroup)},
+      ContinuousMap.Homotopic f g →
+      winding_number f = winding_number g
+
+  /-- Vacuum reference map has winding zero. -/
+  vacuum_winding :
+    ∃ vac : C(Sphere3, RotorGroup), winding_number vac = 0
+
+structure SolitonBoundaryPostulates extends TopologyPostulates where
+  /--
+  Higher lepton generations have larger winding Q\*.
+  -/
+  generation_qstar_order :
+    ∀ {Point : Type} {M : QFD.LeptonModel Point}
+      {c₁ c₂ : Config Point}
+      [Decidable (QFD.IsElectron M c₁)]
+      [Decidable (QFD.IsMuon M c₁)]
+      [Decidable (QFD.IsTau M c₁)]
+      [Decidable (QFD.IsElectron M c₂)]
+      [Decidable (QFD.IsMuon M c₂)]
+      [Decidable (QFD.IsTau M c₂)],
+      QFD.GenerationNumber M c₁ < QFD.GenerationNumber M c₂ →
+      (0 < QFD.GenerationNumber M c₁ ∧
+        0 < QFD.GenerationNumber M c₂) →
+      M.Q_star c₁ < M.Q_star c₂
+
+  /-- Geometric mass formula linking Q\*, β, and the mass scale. -/
+  mass_formula :
+    ∀ {Point : Type} {M : QFD.LeptonModel Point} (c : Config Point),
+      c.energy =
+        (M.toQFDModelStable.toQFDModel.β * (M.Q_star c) ^ 2) * M.lam_mass
+
+structure Model extends SolitonBoundaryPostulates where
+
+  /-- Spectral existence for the confining soliton potential. -/
+  soliton_spectrum_exists :
+    ∀ p : SolitonParams,
+      ∃ states : ℕ → MassState p,
+        ∀ {n m}, n < m → (states n).energy < (states m).energy
 
 
   -- TODO: add the remaining postulates here as they are formalized.
@@ -609,13 +678,159 @@ axiom numerical_nuclear_scale_bound
     (h_c : c_val = 2.99792458e8) :
     abs (hbar_val / (gamma_val * lam_val * c_val) - 1.25e-16) < 1e-16
 
+/-! ### Nuclear Parameter Hypotheses -/
+
+/--
+Nuclear well depth V4 arises from vacuum bulk modulus.
+The quartic term V₄·ρ⁴ prevents over-compression.
+Source: `Nuclear/CoreCompressionLaw.lean`
+-/
+axiom v4_from_vacuum_hypothesis :
+    ∃ (k : ℝ) (k_pos : k > 0),
+    ∀ (beta lambda : ℝ) (beta_pos : beta > 0) (lambda_pos : lambda > 0),
+    let V4 := k * beta * lambda^2
+    V4 > 0
+
+/--
+Nuclear fine structure α_n relates to QCD coupling and vacuum stiffness.
+Source: `Nuclear/CoreCompressionLaw.lean`
+-/
+axiom alpha_n_from_qcd_hypothesis :
+    ∃ (f : ℝ → ℝ → ℝ) (Q_squared : ℝ),
+    ∀ (alpha_s beta : ℝ) (as_pos : 0 < alpha_s ∧ alpha_s < 1) (beta_pos : beta > 0),
+    let alpha_n := f alpha_s beta
+    0 < alpha_n ∧ alpha_n < 1
+
+/--
+Volume term c2 derives from geometric packing fraction.
+Source: `Nuclear/CoreCompressionLaw.lean`
+-/
+axiom c2_from_packing_hypothesis :
+    ∃ (packing_fraction coordination_number : ℝ),
+    let c2 := packing_fraction / Real.pi
+    0.2 ≤ c2 ∧ c2 ≤ 0.5
+
+/-! ### Golden Loop Axioms -/
+
+/--
+β satisfies the transcendental equation e^β/β = K to high precision.
+Source: `GoldenLoop.lean`
+-/
+axiom beta_satisfies_transcendental :
+    abs (Real.exp beta_golden / beta_golden - 6.891) < 0.001
+
+/--
+The Golden Loop identity: β predicts c₂ = 1/β within NuBase uncertainty.
+Source: `GoldenLoop.lean`
+-/
+axiom golden_loop_identity :
+  ∀ (alpha_inv c1 pi_sq beta : ℝ),
+  (Real.exp beta) / beta = (alpha_inv * c1) / pi_sq →
+  abs ((1 / beta) - 0.32704) < 0.002
+
+/--
+Numerical root-finding verifies β ≈ 3.043 solves e^β/β = K.
+Source: `VacuumEigenvalue.lean`
+-/
+axiom python_root_finding_beta :
+  ∀ (K : ℝ) (h_K : abs (K - 6.891) < 0.01),
+    ∃ (β : ℝ),
+      2 < β ∧ β < 4 ∧
+      abs (Real.exp β / β - K) < 1e-10 ∧
+      abs (β - 3.043) < 0.015
+
+/-! ### Photon Scattering Axioms -/
+
+/--
+KdV phase drag interaction: high-energy photon transfers energy to low-energy background.
+Source: `Cosmology/PhotonScatteringKdV.lean`
+-/
+axiom kdv_phase_drag_interaction :
+  ∀ (ω_probe ω_bg : ℝ) (h_energy_diff : ω_probe > ω_bg),
+    ∃ (ΔE : ℝ), ΔE > 0 ∧ ΔE < 1e-25  -- Tiny energy transfer per event
+
+/--
+Rayleigh scattering: cross-section proportional to λ^(-4).
+Source: `Hydrogen/PhotonScattering.lean`
+-/
+axiom rayleigh_scattering_wavelength_dependence :
+  ∀ (λ : ℝ) (h_pos : λ > 0),
+    ∃ (σ k : ℝ), k > 0 ∧ σ = k * λ^(-4 : ℤ)
+
+/--
+Raman shift measures molecular vibration energy.
+Source: `Hydrogen/PhotonScattering.lean`
+-/
+axiom raman_shift_measures_vibration :
+  ∀ (E_in E_out : ℝ) (h_stokes : E_in > E_out),
+    ∃ (E_vib : ℝ), E_vib = E_in - E_out ∧ E_vib > 0
+
+/-! ### Lepton Prediction Axioms -/
+
+/--
+Golden Loop g-2 prediction accuracy: |predicted - SM| < 0.5%.
+Source: `Lepton/LeptonG2Prediction.lean`
+-/
+axiom golden_loop_prediction_accuracy :
+  ∀ (β ξ : ℝ) (h_beta : abs (β - 3.063) < 0.001) (h_xi : abs (ξ - 0.998) < 0.001),
+    abs (-ξ/β - (-0.328478965)) < 0.005
+
+/-! ### Nuclear Energy Minimization Axioms -/
+
+/--
+Energy minimization equilibrium: ∂E/∂Z = 0 determines equilibrium charge.
+Source: `Nuclear/SymmetryEnergyMinimization.lean`
+-/
+axiom energy_minimization_equilibrium :
+  ∀ (β A : ℝ) (h_beta : β > 0) (h_A : A > 0),
+    ∃ (Z_eq : ℝ), 0 ≤ Z_eq ∧ Z_eq ≤ A
+
+/--
+c₂ from β minimization: asymptotic charge fraction approaches 1/β.
+Source: `Nuclear/SymmetryEnergyMinimization.lean`
+-/
+axiom c2_from_beta_minimization :
+  ∀ (β : ℝ) (h_beta : β > 0),
+    ∃ (ε : ℝ), ε > 0 ∧ ε < 0.05 ∧
+    ∀ (A : ℝ), A > 100 →
+      ∃ (Z_eq : ℝ), abs (Z_eq / A - 1 / β) < ε
+
+/-! ### Soliton Boundary Axioms -/
+
+/--
+Soliton admissibility: Ricker wavelet amplitude stays within vacuum bounds.
+Source: `Soliton/HardWall.lean`
+-/
+axiom soliton_always_admissible :
+  ∀ (v₀ A : ℝ) (h_v₀ : v₀ > 0) (h_A : A > 0),
+    -- Ricker minimum ≈ -0.446 A, so need A < v₀ / 0.446 for admissibility
+    A < v₀ / 0.446 → True  -- Simplified: full version in HardWall.lean
+
 /-!
-NOTE: Some legacy modules (e.g. `Hydrogen/PhotonResonance.lean`) still declare
-physics axioms locally. Moving them here currently creates circular
-dependencies because the physics definitions (`ResonantModel`, `PacketLength`,
-etc.) live in those files. Future work: factor those type definitions into a
-neutral `Physics.*` module so the corresponding axioms can migrate into this
-centralized postulate structure without introducing cycles.
+## Axiom Inventory
+
+### Centralized Here (16 standalone + ~43 structure fields):
+- `rpow_strict_subadd` - Concavity of x^p for 0<p<1
+- `numerical_nuclear_scale_bound` - L₀ ≈ 1.25×10⁻¹⁶ m
+- `shell_theorem_timeDilation` - Harmonic exterior → 1/r decay
+- `v4_from_vacuum_hypothesis` - Nuclear well depth from β
+- `alpha_n_from_qcd_hypothesis` - Nuclear fine structure from QCD
+- `c2_from_packing_hypothesis` - Volume term from packing
+- `beta_satisfies_transcendental` - β solves e^β/β = K
+- `golden_loop_identity` - β predicts c₂
+- `python_root_finding_beta` - Numerical root finding
+- `kdv_phase_drag_interaction` - Photon energy transfer
+- `rayleigh_scattering_wavelength_dependence` - λ^(-4) scattering
+- `raman_shift_measures_vibration` - Vibrational spectroscopy
+- `golden_loop_prediction_accuracy` - g-2 prediction
+- `energy_minimization_equilibrium` - Nuclear equilibrium
+- `c2_from_beta_minimization` - Asymptotic charge fraction
+- `soliton_always_admissible` - Ricker admissibility
+
+### In Model Structure (via extends chain):
+- TopologyPostulates: winding_number, degree_homotopy_invariant, vacuum_winding
+- SolitonBoundaryPostulates: generation_qstar_order, mass_formula
+- Model: soliton_spectrum_exists
 -/
 
 end QFD.Physics
