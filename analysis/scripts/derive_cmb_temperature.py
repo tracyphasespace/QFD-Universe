@@ -251,7 +251,12 @@ def derive_T_from_thermalization():
     print("-" * 60)
 
     # From GoldenLoop.lean
-    BETA_GOLDEN = 3.058230856
+    # QFD Vacuum Parameters:
+    # β = 3.043233053 (Golden Loop eigenvalue derived from alpha)
+    # λ = 938.272 MeV (Proton Bridge)
+    # c_vac = √β = 1.744486 (natural units)
+
+    BETA_GOLDEN = 3.043233053
 
     # Proton mass sets the vacuum density scale
     M_PROTON_MEV = 938.272

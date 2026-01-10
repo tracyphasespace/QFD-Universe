@@ -17,7 +17,7 @@ from scipy.stats import pearsonr, spearmanr
 from collections import Counter
 
 # Load data
-df = pd.read_csv('../data/derived/ame2020_system_energies.csv')
+df = pd.read_csv('./data/ame2020_system_energies.csv')
 df = df[(df['Z'] > 0) & (df['A'] > 0)].copy()
 
 # Create lookup dictionary for fast access
@@ -340,10 +340,11 @@ fig, axes = plt.subplots(2, 3, figsize=(18, 12))
 # Plot 1: Alpha decay ΔN distribution
 ax = axes[0, 0]
 if len(df_alpha) > 0:
-    dn_vals = df_alpha['delta_N'].values
-    ax.hist(dn_vals, bins=np.arange(dn_vals.min()-0.5, dn_vals.max()+1.5, 1),
-           alpha=0.7, color='red', edgecolor='black')
-    ax.axvline(0, color='blue', linestyle='--', linewidth=2, label='ΔN=0')
+    dn_vals = df_alpha['delta_N'].dropna().values
+    if len(dn_vals) > 0:
+        bins = np.arange(np.floor(dn_vals.min())-0.5, np.ceil(dn_vals.max())+1.5, 1)
+        ax.hist(dn_vals, bins=bins, alpha=0.7, color='red', edgecolor='black')
+    ax.axvline(0, color='red', linestyle='--', linewidth=2, label='ΔN=0')
     ax.set_xlabel('ΔN (daughter - parent)', fontsize=12)
     ax.set_ylabel('Count', fontsize=12)
     ax.set_title(f'Alpha Decay: ΔN Distribution (n={len(df_alpha)})', fontsize=14)
@@ -353,9 +354,10 @@ if len(df_alpha) > 0:
 # Plot 2: Beta- decay ΔN distribution
 ax = axes[0, 1]
 if len(df_beta_minus) > 0:
-    dn_vals = df_beta_minus['delta_N'].values
-    ax.hist(dn_vals, bins=np.arange(dn_vals.min()-0.5, dn_vals.max()+1.5, 1),
-           alpha=0.7, color='blue', edgecolor='black')
+    dn_vals = df_beta_minus['delta_N'].dropna().values
+    if len(dn_vals) > 0:
+        bins = np.arange(np.floor(dn_vals.min())-0.5, np.ceil(dn_vals.max())+1.5, 1)
+        ax.hist(dn_vals, bins=bins, alpha=0.7, color='blue', edgecolor='black')
     ax.axvline(0, color='red', linestyle='--', linewidth=2, label='ΔN=0')
     ax.set_xlabel('ΔN (daughter - parent)', fontsize=12)
     ax.set_ylabel('Count', fontsize=12)
@@ -366,9 +368,10 @@ if len(df_beta_minus) > 0:
 # Plot 3: Beta+ decay ΔN distribution
 ax = axes[0, 2]
 if len(df_beta_plus) > 0:
-    dn_vals = df_beta_plus['delta_N'].values
-    ax.hist(dn_vals, bins=np.arange(dn_vals.min()-0.5, dn_vals.max()+1.5, 1),
-           alpha=0.7, color='green', edgecolor='black')
+    dn_vals = df_beta_plus['delta_N'].dropna().values
+    if len(dn_vals) > 0:
+        bins = np.arange(np.floor(dn_vals.min())-0.5, np.ceil(dn_vals.max())+1.5, 1)
+        ax.hist(dn_vals, bins=bins, alpha=0.7, color='green', edgecolor='black')
     ax.axvline(0, color='red', linestyle='--', linewidth=2, label='ΔN=0')
     ax.set_xlabel('ΔN (daughter - parent)', fontsize=12)
     ax.set_ylabel('Count', fontsize=12)
@@ -400,6 +403,9 @@ if len(df_all) > 0:
     transition_matrix = np.zeros((len(N_range), len(N_range)))
 
     for _, trans in df_all.iterrows():
+        if pd.isna(trans['N_p']) or pd.isna(trans['N_d']):
+            continue
+            
         N_p, N_d = int(trans['N_p']), int(trans['N_d'])
         if N_p in N_range and N_d in N_range:
             i = N_range.index(N_p)

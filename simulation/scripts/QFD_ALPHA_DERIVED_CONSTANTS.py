@@ -55,10 +55,13 @@ ALPHA_INV = 137.035999206
 #
 # Solving numerically for β gives:
 #
-BETA_VACUUM = 3.04309  # Vacuum stiffness (α-derived)
+# =============================================================================
+# CONSTANTS
+# =============================================================================
 
-# Old fitted value (for reference only - DO NOT USE):
-# BETA_VACUUM_OLD = 3.058  # Was fitted to nuclear data
+ALPHA_INV = 137.035999206
+BETA_VACUUM = 3.043233053  # Vacuum stiffness (α-derived)
+BETA_VACUUM_OLD = 3.058  # DEPRECATED: Was fitted to nuclear data
 
 # =============================================================================
 # FUNDAMENTAL SOLITON EQUATION COEFFICIENTS

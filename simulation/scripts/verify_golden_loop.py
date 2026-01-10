@@ -8,14 +8,19 @@ not fitted to any data.
 Reference: formalization/QFD/Constants/GoldenLoop.lean
 """
 
+import numpy as np
+from scipy.optimize import brentq
 import sys
-sys.path.insert(0, '../src')
+import os
+
+# Add src directory to path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from shared_constants import (
-    ALPHA, ALPHA_INV, BETA, C1_SURFACE, C2_VOLUME,
-    C1_EMPIRICAL, C2_EMPIRICAL, verify_constants
+    ALPHA_INV, PI_SQ,
+    C1_SURFACE, C2_VOLUME, BETA,
+    C1_EMPIRICAL, C2_EMPIRICAL
 )
-import numpy as np
 
 def main():
     print("=" * 70)

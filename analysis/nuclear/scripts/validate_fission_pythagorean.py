@@ -132,14 +132,14 @@ def test_fission_pythagorean():
 
         print()
 
-    # RESONANCE EXCITATION HYPOTHESIS
+    # RESONANCE EXCITATION HYPOTHESIS TEST
     print("=" * 90)
     print("RESONANCE EXCITATION TEST: Does Parent Fission from High-N Mode?")
-    print("Hypothesis: Fission occurs when parent excites to N* = N_f1 + N_f2")
+    print("Hypothesis: Fission occurs when parent excites to N_star = N_f1 + N_f2")
     print("=" * 90)
     print()
 
-    print(f"{'Parent':<10} {'N_ground':<8} {'Frag1+Frag2':<12} {'N_sum':<6} {'N*':<6} | Match?")
+    print(f"{'Parent':<10} {'N_ground':<8} {'Frag1+Frag2':<12} {'N_sum':<6} {'N_star':<6} | Match?")
     print("-" * 90)
 
     resonance_matches = 0
@@ -147,52 +147,35 @@ def test_fission_pythagorean():
     for r in results:
         # Ground state
         N_ground = r['N_p']
-
+        
         # Fragment modes
         N_f1 = r['N_f1']
         N_f2 = r['N_f2']
-
+        
         # Target resonance mode (Linear Sum)
         N_target = N_f1 + N_f2
-
+        
         # Check if parent is 'capable' of this mode (integer)
         is_integer = float(N_target).is_integer()
-
+        
         # Energy Check (Qualitative):
         # High N means high deformation/energy.
-        # N=9 is much higher than N=1.
+        # N=9 is much higher than N=1. 
         # This matches the "Compound Nucleus" model where U-236* is highly excited.
-
-        match_icon = "✅"  # If it exists as an integer mode, it's a valid resonance channel
+        
+        match_icon = "✅" # If it exists as an integer mode, it's a valid resonance channel
         resonance_matches += 1
-
+        
         print(f"{r['Parent']:<10} {N_ground:<8} {str(N_f1)+'+'+str(N_f2):<12} {r['N_sum']:<6} {N_target:<6} | {match_icon}")
 
     print("-" * 90)
     print(f"Resonance Channel Exists: {resonance_matches}/{len(results)} ({resonance_matches/len(results)*100:.1f}%)")
     print()
-
     print("INTERPRETATION:")
     print("  - Ground states (N=0,1) are STABLE (Dissonant with fragments).")
     print("  - Excited states (N=8,9,10,11) are UNSTABLE (Resonant with fragments).")
     print("  - Fission is a 'Mode Locking' event where P(N*) -> F1(N1) + F2(N2)")
-    print("  - This explains why U-235 needs a neutron: to push it up the ladder to N*!")
-    print()
-
-    # CONCLUSION
-    print("=" * 90)
-    print("CONCLUSION: LINEAR CONSERVATION AT EXCITED STATE")
-    print("=" * 90)
-    print()
-
-    print(f"✅ RESONANCE EXCITATION validated: {resonance_matches}/{len(results)} (100%)")
-    print()
-    print("   The 'failure' of ground-state conservation is actually SUCCESS:")
-    print("   Fission DOES conserve N, but at the EXCITED state, not ground state.")
-    print()
-    print("   N*_parent = N_fragment1 + N_fragment2")
-    print()
-    print("   Where N* is the resonant mode reached after neutron capture.")
+    print("  - This explains why U-235 needs a neutron: to push it up the ladder to N=9!")
     print()
 
 if __name__ == "__main__":

@@ -32,6 +32,7 @@ from scipy.optimize import brentq
 # Source: https://physics.nist.gov/cgi-bin/cuu/Value?alph
 ALPHA = 1.0 / 137.035999206
 ALPHA_INV = 137.035999206
+PI_SQ = np.pi ** 2
 
 # =============================================================================
 # GOLDEN LOOP DERIVATION (α → β)

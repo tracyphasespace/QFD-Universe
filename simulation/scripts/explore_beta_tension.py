@@ -101,7 +101,7 @@ def analyze_tension():
     K = K_target()
     beta_transcendental = find_transcendental_root()
     beta_c2_optimal = find_c2_optimal_beta()
-    beta_golden = 3.058230856  # Current GoldenLoop.lean value
+    beta_golden = 3.043233053  # Current GoldenLoop.lean value
 
     print("EMPIRICAL INPUTS:")
     print(f"  α⁻¹ = {ALPHA_INV} (CODATA 2018)")

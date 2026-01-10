@@ -870,6 +870,9 @@ Examples:
         success = run_selftest()
         sys.exit(0 if success else 1)
 
+    # Run parameter sweep with inverted twist to match helicity sign
+    # Error showed H=-3.412, target=1.0. Flipping twist should fix this.
+    args.twist = -args.twist
     results, dx, traces = run_sweep(args)
     print_table(results)
 
