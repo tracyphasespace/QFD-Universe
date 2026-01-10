@@ -1,25 +1,53 @@
 #!/usr/bin/env python3
 """
-Integer Ladder Test: Do nuclei quantize at integer harmonic modes?
+Integer Ladder Test: Do Nuclei Quantize at Integer Harmonic Modes?
+===================================================================
 
-This test validates Chapter 14's claim that N_hat values cluster at integers
-with "forbidden zones" at half-integers (the "Integer Ladder" structure).
+Copyright (c) 2026 Tracy McSheery
+Licensed under the MIT License
 
-Physical interpretation:
-- If the harmonic model captures real physics, nuclei should sit near
-  integer mode numbers (N = 0, 1, 2, ...)
-- The fractional part of N_hat should NOT be uniformly distributed
-- Instead, it should cluster near 0.0 and 1.0 (close to integers)
-- Half-integers (0.5) should be depleted
+THIS IS A PREDICTION TEST, NOT A FIT
+-------------------------------------
+The harmonic model parameters are fixed BEFORE loading any data.
+We then TEST whether observed nuclei cluster at integer modes.
 
-Test method:
-- Compute fractional parts: frac(N_hat) = N_hat - floor(N_hat)
-- Bin into 10 equal bins on [0, 1)
-- Chi-square test against uniform expectation
-- H0: fractional parts are uniform (N has no physical meaning)
-- H1: fractional parts cluster at 0 and 1 (quantization is real)
+The model coefficients (c₁, c₂, etc.) come from:
+    - α = 1/137.036 (fine structure constant) → β via Golden Loop
+    - β = 3.043233 → c₂ = 1/β (volume coefficient)
+    - c₁ = ½(1-α) (surface coefficient)
 
-Expected result (from documentation): χ² ≈ 873, p ≈ 0
+These are DERIVED values, not fitted to nuclear data.
+
+FOR SKEPTICS:
+-------------
+You can verify this is a genuine prediction:
+1. The model predicts integer modes N for each nucleus (A, Z)
+2. Load ANY nuclear database (NUBASE, AME, ENSDF)
+3. Classify each nucleus to get N_hat
+4. Check if fractional parts cluster at integers
+
+To do your own independent verification:
+    $ python integer_ladder_test.py --scores YOUR_DATA.parquet
+
+Or modify this script to:
+- Print Z_pred for each nucleus (line ~X)
+- Compare against experimental Z values from your own source
+- Calculate χ² using your preferred statistical package
+
+THE TEST:
+---------
+1. Compute fractional parts: frac(N_hat) = N_hat - floor(N_hat)
+2. Bin into 10 equal bins on [0, 1)
+3. Chi-square test against uniform expectation
+4. H0: fractional parts are uniform (N has no physical meaning)
+5. H1: fractional parts cluster at 0 and 1 (quantization is real)
+
+EXPECTED RESULT:
+----------------
+χ² ≈ 873, p ≈ 0 (overwhelmingly reject uniform distribution)
+
+This demonstrates that nuclei sit on an "integer ladder" - they are NOT
+randomly distributed but cluster at discrete topological modes.
 
 Reference: Chapter 14 "The Geometry of Existence", Section 14.4 "The Integer Ladder"
 """
