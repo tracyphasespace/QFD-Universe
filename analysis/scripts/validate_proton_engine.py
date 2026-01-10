@@ -16,6 +16,7 @@ Date: 2026-01-03
 Status: Final validation - completing the quadrant
 """
 
+import os
 import pandas as pd
 import numpy as np
 import sys
@@ -424,11 +425,13 @@ def main():
     ax.grid(True, alpha=0.3, axis='y')
 
     plt.tight_layout()
+    os.makedirs('figures', exist_ok=True)
     plt.savefig('figures/proton_drip_engine_validation.png', dpi=150, bbox_inches='tight')
     print("Saved: figures/proton_drip_engine_validation.png")
     print()
 
     # Save results
+    os.makedirs('results', exist_ok=True)
     df_drip.to_csv('results/proton_drip_line_analysis.csv', index=False)
     print("Saved: results/proton_drip_line_analysis.csv")
 

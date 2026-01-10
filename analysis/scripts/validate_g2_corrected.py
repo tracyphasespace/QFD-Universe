@@ -39,6 +39,7 @@ def create_g2_figure(V4_geometric, V4_electron, V4_muon, output_dir='.'):
             bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
 
     plt.tight_layout()
+    Path(output_dir).mkdir(parents=True, exist_ok=True)
     output_path = Path(output_dir) / 'g2_validation.png'
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     print(f"\nSaved: {output_path}")
