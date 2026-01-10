@@ -85,48 +85,39 @@ View QFD photon soliton dynamics in your browser (no installation):
 
 ## Quick Start
 
-### Instant Validation (No Dependencies)
-
-```bash
-python3 qfd_proof.py
-```
-
-This single file proves the core claims using **only the Python standard library**. Copy-paste it into any Python REPL - no numpy, no scipy needed.
-
-### Full Validation Suite (Requires Dependencies + Data)
+### 1. Install Dependencies
 
 ```bash
 pip install numpy scipy pandas matplotlib pyarrow
 ```
 
-**Note**: Some scripts require the NuBase 2020 data file (`analysis/data/derived/harmonic_scores.parquet`).
-
-### 1. Verify the Golden Loop (α → β)
+### 2. Run the Complete Validation Suite
 
 ```bash
-cd simulation/scripts
-python verify_golden_loop.py
+git clone https://github.com/tracyphasespace/QFD-Universe.git
+cd QFD-Universe
+python analysis/scripts/run_all_validations.py
 ```
 
-**Expected**: β = 3.04309 derived from α = 1/137.036
+**Expected output: 12/12 tests passed** (~14 seconds)
 
-### 2. Test Nuclear Predictions
+This single command validates all QFD claims:
+
+| Category | Tests | What It Validates |
+|----------|-------|-------------------|
+| **Derivations** | 5 | β from α, ħ from topology, Golden Loop, α-derived constants, β tension |
+| **Nuclear** | 4 | Integer ladder (χ²=873), fission resonance (100%), β±/α decay rules (99.7%), proton drip (96%) |
+| **Cosmology** | 3 | g-2 anomaly, lepton stability, CMB temperature (0.03% error) |
+
+### Alternative: Zero-Dependency Proof
 
 ```bash
-python run_nuclear_validation.py
+python3 qfd_proof.py
 ```
 
-**Expected**: 62% exact Z predictions with zero free parameters
+This single file proves core claims using **only the Python standard library** - no numpy, no scipy needed.
 
-### 3. Validate Conservation Law
-
-```bash
-python run_conservation_law.py
-```
-
-**Expected**: 285/285 perfect matches (N_parent = ΣN_fragments)
-
-### 4. Build Lean4 Proofs (optional)
+### Build Lean4 Proofs (optional)
 
 ```bash
 cd formalization
