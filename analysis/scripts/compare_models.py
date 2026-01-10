@@ -117,29 +117,55 @@ class ModelD_LCDM:
 # =============================================================================
 
 def load_pantheon_data():
-    """Load Pantheon+ / DES-SN5YR data from CSV files."""
-    data_dir = Path("/home/tracy/development/QFD_SpectralGap/projects/astrophysics/qfd-supernova-v15/data")
+    """Load Pantheon+ / DES-SN5YR data from CSV files.
 
-    # Try DES-SN5YR processed data first (has MU directly)
-    des_file = data_dir / "DES-SN5YR-1.2/4_DISTANCES_COVMAT/DES-SN5YR_HD.csv"
-    if des_file.exists():
-        print(f"Loading: {des_file}")
-        df = pd.read_csv(des_file)
-        print(f"  Columns: {list(df.columns)}")
-        print(f"  Rows: {len(df)}")
-        return df
+    Searches for data in these locations (in order):
+    1. ../data/sne/ relative to this script
+    2. ../data/ relative to this script
+    3. Falls back to mock data if not found
+    """
+    script_dir = Path(__file__).parent.resolve()
 
-    # Try the full metadata file
-    des_meta = data_dir / "DES-SN5YR-1.2/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv"
-    if des_meta.exists():
-        print(f"Loading: {des_meta}")
-        df = pd.read_csv(des_meta)
-        print(f"  Columns: {list(df.columns)[:15]}...")
-        print(f"  Rows: {len(df)}")
-        return df
+    # Possible data directories (relative to script)
+    data_dirs = [
+        script_dir / "../data/sne",
+        script_dir / "../data",
+    ]
+
+    for data_dir in data_dirs:
+        if not data_dir.exists():
+            continue
+
+        # Try DES-SN5YR processed data first (has MU directly)
+        des_file = data_dir / "DES-SN5YR-1.2/4_DISTANCES_COVMAT/DES-SN5YR_HD.csv"
+        if des_file.exists():
+            print(f"Loading: {des_file}")
+            df = pd.read_csv(des_file)
+            print(f"  Columns: {list(df.columns)}")
+            print(f"  Rows: {len(df)}")
+            return df
+
+        # Try the full metadata file
+        des_meta = data_dir / "DES-SN5YR-1.2/4_DISTANCES_COVMAT/DES-SN5YR_HD+MetaData.csv"
+        if des_meta.exists():
+            print(f"Loading: {des_meta}")
+            df = pd.read_csv(des_meta)
+            print(f"  Columns: {list(df.columns)[:15]}...")
+            print(f"  Rows: {len(df)}")
+            return df
+
+        # Try simple CSV in data directory
+        for sne_file in data_dir.glob("*.csv"):
+            if 'sne' in sne_file.name.lower() or 'pantheon' in sne_file.name.lower():
+                print(f"Loading: {sne_file}")
+                df = pd.read_csv(sne_file)
+                print(f"  Columns: {list(df.columns)[:10]}...")
+                print(f"  Rows: {len(df)}")
+                return df
 
     # If no file found, generate mock data
-    print("WARNING: No SNe data found, using mock data")
+    print("WARNING: No SNe data found in ../data/, using mock data for demonstration")
+    print("  To use real data, place DES-SN5YR or Pantheon+ CSV files in analysis/data/")
     return generate_mock_data()
 
 
