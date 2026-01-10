@@ -21,8 +21,11 @@ import pandas as pd
 import numpy as np
 import sys
 import matplotlib.pyplot as plt
+from pathlib import Path
 
-sys.path.insert(0, 'scripts')
+# Resolve paths relative to this script's location
+_script_dir = Path(__file__).parent.resolve()
+sys.path.insert(0, str(_script_dir))
 from nucleus_classifier import classify_nucleus
 
 def get_family_parameters(family, N):
@@ -110,7 +113,7 @@ def main():
     print()
 
     # Load AME2020 data
-    df = pd.read_csv('data/ame2020_system_energies.csv')
+    df = pd.read_csv(_script_dir / 'data/ame2020_system_energies.csv')
 
     print(f"Loaded {len(df)} nuclei from AME2020")
     print()

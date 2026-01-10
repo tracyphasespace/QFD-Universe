@@ -16,8 +16,10 @@ import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, spearmanr
 from collections import Counter
 
-# Load data
-df = pd.read_csv('./data/ame2020_system_energies.csv')
+# Load data - resolve path relative to this script's location
+from pathlib import Path
+_script_dir = Path(__file__).parent.resolve()
+df = pd.read_csv(_script_dir / '../data/ame2020_system_energies.csv')
 df = df[(df['Z'] > 0) & (df['A'] > 0)].copy()
 
 # Create lookup dictionary for fast access

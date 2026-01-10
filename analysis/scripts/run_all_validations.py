@@ -35,33 +35,33 @@ def print_section(title):
     print("-" * 80)
 
 
-def run_validation(script_name, description, args=None):
+def run_validation(script_name, description, args=None, cwd=None):
     """Run a validation script and return success status."""
     print_section(f"Running: {description}")
-    
-    # Try current directory first, then relative paths
-    script_path = Path(__file__).parent / script_name
-    
+
+    # Resolve script path relative to this file's location
+    base_dir = Path(__file__).parent.resolve()
+    script_path = (base_dir / script_name).resolve()
+
     if not script_path.exists():
-        # Try resolving relative to analysis/scripts if script_name contains ..
-        # This handles cases where we are running from analysis/scripts but pointing to simulation
-        if 'simulation' in script_name:
-             script_path = Path(__file__).parent.parent.parent / script_name.replace('../', '')
-        
-        if not script_path.exists():
-             print(f"⚠️  WARNING: {script_path} not found, skipping...")
-             return False
+        print(f"⚠️  WARNING: {script_path} not found, skipping...")
+        return False
 
     cmd = [sys.executable, str(script_path)]
     if args:
         cmd.extend(args)
+
+    # Use script's directory as working directory if not specified
+    if cwd is None:
+        cwd = script_path.parent
 
     try:
         result = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
-            timeout=120
+            timeout=120,
+            cwd=str(cwd)
         )
 
         # Print output
@@ -163,7 +163,7 @@ def main():
     results['integer_ladder'] = run_validation(
         '../nuclear/scripts/integer_ladder_test.py',
         'Integer Ladder Test',
-        args=['--scores', '../data/derived/harmonic_scores.parquet', '--out', '../results/']
+        args=['--scores', '../data/harmonic_scores.parquet', '--out', '../results/']
     )
 
     # Validation 2: Fission Resonance (Engine B)
