@@ -342,7 +342,7 @@ def main():
     )
     parser.add_argument(
         '--scores',
-        default='data/derived/harmonic_scores.parquet',
+        default='../data/derived/harmonic_scores.parquet',
         help='Path to harmonic_scores.parquet'
     )
     parser.add_argument(

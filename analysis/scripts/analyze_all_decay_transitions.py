@@ -17,7 +17,7 @@ from scipy.stats import pearsonr, spearmanr
 from collections import Counter
 
 # Load data
-df = pd.read_csv('./data/ame2020_system_energies.csv')
+df = pd.read_csv('../data/derived/ame2020_system_energies.csv')
 df = df[(df['Z'] > 0) & (df['A'] > 0)].copy()
 
 # Create lookup dictionary for fast access
