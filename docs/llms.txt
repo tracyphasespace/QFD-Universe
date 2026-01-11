@@ -6,8 +6,8 @@ QFD-Universe is a public mirror of the Quantum Field Dynamics formalization proj
 It contains Lean 4 formal proofs and Python validation scripts.
 
 ## Key Statistics
-- Total Files: 362
-- Lean Proofs: 242
+- Total Files: 363
+- Lean Proofs: 243
 - Python Scripts: 39
 - Documentation: 73
 - Proven Theorems: 886
@@ -133,6 +133,7 @@ formalization/QFD/BlackHole/BlackHole_Saturation.lean
 formalization/QFD/BlackHole/SaturationLimit.lean
 formalization/QFD/Charge/Asymptotic_Charge_Fraction.lean
 formalization/QFD/Charge/Coulomb.lean
+formalization/QFD/Charge/GeometricCharge.lean
 formalization/QFD/Charge/Potential.lean
 formalization/QFD/Charge/Quantization.lean
 formalization/QFD/Charge/ShellTheorem.lean
