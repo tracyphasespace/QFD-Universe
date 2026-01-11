@@ -6,10 +6,10 @@ QFD-Universe is a public mirror of the Quantum Field Dynamics formalization proj
 It contains Lean 4 formal proofs and Python validation scripts.
 
 ## Key Statistics
-- Total Files: 361
+- Total Files: 362
 - Lean Proofs: 242
 - Python Scripts: 39
-- Documentation: 72
+- Documentation: 73
 - Proven Theorems: 886
 - Proven Lemmas: 215
 - Total Proven Statements: 1,101
@@ -44,6 +44,7 @@ https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 
 
 ### Core Documentation
+CL33_METHODOLOGY.md
 LLM_CONTEXT.md
 README.md
 THEORY.md

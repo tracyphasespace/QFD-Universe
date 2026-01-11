@@ -16,6 +16,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
