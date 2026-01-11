@@ -187,6 +187,43 @@ def build_vector_potential(
     Az = amp * g * (ephi_z + twist * ethe_z)
     return Ax, Ay, Az
 
+def build_abc_flow(
+    N: int,
+    L: float,
+    A_coef: float = 1.0,
+    B_coef: float = 1.0,
+    C_coef: float = 1.0,
+    kappa: float = 1.0,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, float]:
+    """
+    Build an ABC (Arnold-Beltrami-Childress) flow - EXACT Beltrami eigenfield.
+
+    The ABC flow satisfies curl v = κ v exactly:
+        v_x = A*sin(κz) + C*cos(κy)
+        v_y = B*sin(κx) + A*cos(κz)
+        v_z = C*sin(κy) + B*cos(κx)
+
+    This is the mathematically correct way to test Beltrami alignment.
+    The toroidal ansatz is only approximate.
+
+    Returns:
+        X, Y, Z: Coordinate grids
+        vx, vy, vz: Velocity/field components
+        dx: Grid spacing
+    """
+    # Create grid on [0, 2π]³ for periodic ABC flow
+    x = np.linspace(0, 2*L, N, endpoint=False, dtype=np.float64)
+    dx = x[1] - x[0]
+    X, Y, Z = np.meshgrid(x, x, x, indexing='ij')
+
+    # ABC flow components (exact Beltrami eigenfield!)
+    vx = A_coef * np.sin(kappa * Z) + C_coef * np.cos(kappa * Y)
+    vy = B_coef * np.sin(kappa * X) + A_coef * np.cos(kappa * Z)
+    vz = C_coef * np.sin(kappa * Y) + B_coef * np.cos(kappa * X)
+
+    return X, Y, Z, vx, vy, vz, dx
+
+
 def curl(Fx: np.ndarray, Fy: np.ndarray, Fz: np.ndarray, dx: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Curl on a uniform grid using np.gradient (2nd order central in interior).
@@ -843,6 +880,13 @@ Examples:
     ap.add_argument("--scales", type=float, nargs="+", default=[0.8, 1.0, 1.25, 1.5, 2.0],
                     help="geometry scale factors")
     ap.add_argument("--plot", action="store_true", help="generate plots")
+
+    # ABC flow options (exact Beltrami eigenfield)
+    abc_group = ap.add_argument_group("ABC flow options (exact Beltrami)")
+    abc_group.add_argument("--abc", action="store_true",
+                           help="use ABC flow instead of toroidal ansatz (exact Beltrami)")
+    abc_group.add_argument("--abc_kappa", type=float, default=1.0,
+                           help="ABC flow eigenvalue κ (curl v = κ v)")
 
     # Relaxation options
     relax_group = ap.add_argument_group("relaxation options")
