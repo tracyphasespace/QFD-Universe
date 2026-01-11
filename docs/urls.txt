@@ -1,0 +1,14 @@
+# QFD-Universe Direct URLs
+# Copy-paste any URL to fetch content
+
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/qfd_proof.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/run_all_validations.py
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/GoldenLoop.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Physics/Postulates.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Lepton/GeometricG2.lean
+https://tracyphasespace.github.io/QFD-Universe/llms.txt
+https://tracyphasespace.github.io/QFD-Universe/files.json
