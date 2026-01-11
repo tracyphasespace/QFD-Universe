@@ -1,6 +1,9 @@
 # QFD-Universe Direct URLs
 # Copy-paste any URL to fetch content
 
+# COMPLETE INDEX (all 246 Lean proofs + scripts + docs)
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/raw_index.md
+
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
