@@ -160,13 +160,28 @@ It contains Lean 4 formal proofs and Python validation scripts.
 - Fundamental constants (alpha, beta, c, hbar, G) are geometrically related
 - Planck constant derived from topology: hbar = Gamma * lambda * L0 * c
 
-## File Index (Raw URLs for AI Access)
-# Format: category | path | raw_url
+## Raw URL Base
+{RAW_URL}/
+
+## File Index
+# Prepend base URL above to get raw file content
+# Format: path
 
 """
 
-    for f in sorted(files, key=lambda x: (x["category"], x["path"])):
-        content += f"{f['category']} | {f['path']} | {f['raw_url']}\n"
+    # Group by category for cleaner output
+    by_cat = {}
+    for f in sorted(files, key=lambda x: x["path"]):
+        cat = f["category"]
+        if cat not in by_cat:
+            by_cat[cat] = []
+        by_cat[cat].append(f["path"])
+
+    for cat in ["Core Documentation", "Lean Proofs", "Python Code", "LaTeX Manuscripts", "Other"]:
+        if cat in by_cat:
+            content += f"\n### {cat}\n"
+            for path in by_cat[cat]:
+                content += f"{path}\n"
 
     with open(output_path, "w") as f:
         f.write(content)

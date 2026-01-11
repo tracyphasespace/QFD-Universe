@@ -1,12 +1,12 @@
 {
-  "generated": "2026-01-11T07:21:10.693903",
+  "generated": "2026-01-11T07:42:26.466650",
   "repo": "https://github.com/tracyphasespace/QFD-Universe",
-  "total_files": 359,
+  "total_files": 361,
   "categories": {
     "Core Documentation": 72,
     "Python Code": 39,
+    "Other": 6,
     "Lean Proofs": 242,
-    "Other": 4,
     "LaTeX Manuscripts": 2
   },
   "files": [
@@ -23,8 +23,8 @@
       "path": "README.md",
       "name": "README.md",
       "category": "Core Documentation",
-      "size": 15431,
-      "modified": "2026-01-11T07:01:46.104450",
+      "size": 15787,
+      "modified": "2026-01-11T07:21:36.049213",
       "raw_url": "https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md",
       "github_url": "https://github.com/tracyphasespace/QFD-Universe/blob/main/README.md"
     },
@@ -257,10 +257,28 @@
       "path": "docs/generate_index.py",
       "name": "generate_index.py",
       "category": "Python Code",
-      "size": 13586,
-      "modified": "2026-01-11T07:21:00.534818",
+      "size": 13955,
+      "modified": "2026-01-11T07:42:22.264244",
       "raw_url": "https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/generate_index.py",
       "github_url": "https://github.com/tracyphasespace/QFD-Universe/blob/main/docs/generate_index.py"
+    },
+    {
+      "path": "docs/llms.txt",
+      "name": "llms.txt",
+      "category": "Other",
+      "size": 65158,
+      "modified": "2026-01-11T07:21:10.691395",
+      "raw_url": "https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt",
+      "github_url": "https://github.com/tracyphasespace/QFD-Universe/blob/main/docs/llms.txt"
+    },
+    {
+      "path": "docs/robots.txt",
+      "name": "robots.txt",
+      "category": "Other",
+      "size": 409,
+      "modified": "2026-01-11T07:21:10.691395",
+      "raw_url": "https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/robots.txt",
+      "github_url": "https://github.com/tracyphasespace/QFD-Universe/blob/main/docs/robots.txt"
     },
     {
       "path": "formalization/QFD/AGENTS.md",
