@@ -18,6 +18,8 @@ https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/files.j
 
 **Quantum Field Dynamics: A Parameter-Free Framework for Fundamental Physics**
 
+> **AI/LLM Tools**: Fetch [docs/urls.txt](https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt) for direct file URLs.
+
 ## Raw File URLs (For AI/Browser Tools)
 
 GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
