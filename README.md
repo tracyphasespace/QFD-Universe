@@ -1,17 +1,17 @@
 <!--
 AI INSTRUCTIONS - READ THIS FIRST
 
-Fetch this file for the complete project index:
-https://tracyphasespace.github.io/QFD-Universe/llms.txt
+SIMPLEST: Fetch key URLs (one per line):
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt
+
+FULL INDEX (363 files):
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt
 
 To read any file, prepend this base URL to the path:
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 
-Example - to read THEORY.md:
-https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
-
-Machine-readable index (JSON):
-https://tracyphasespace.github.io/QFD-Universe/files.json
+Machine-readable JSON:
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/files.json
 -->
 
 # QFD-Universe
@@ -24,7 +24,8 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 | File | Direct Raw URL |
 |------|----------------|
-| **File Index** | https://tracyphasespace.github.io/QFD-Universe/llms.txt |
+| **Key URLs (simplest)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt |
+| **File Index (363 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
 | **This README** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md |
 | **Theory Doc** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md |
 | **Methodology** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md |
