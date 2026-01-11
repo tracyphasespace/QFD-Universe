@@ -29,6 +29,8 @@ The odds of this matching by accident: **1 in 10⁵⁰**.
 
 If this intrigues you, read on. If it doesn't, close the tab—we can't help you.
 
+**Deep Dive**: For the complete mathematical framework explaining why Cl(3,3) is the natural coordinate space and how ALL fundamental constants emerge geometrically, see **[CL33_METHODOLOGY.md](CL33_METHODOLOGY.md)**.
+
 ---
 
 ## Why This Works: The Physics (For Those Who Stayed)
@@ -390,6 +392,8 @@ This "get lucky" approach—converting equations to Clifford algebra Cl(3,3) and
 4. The symmetry that survives IS the physics
 
 This works because Cl(3,3) has signature (+,+,+,−,−,−)—three spacelike, three timelike—and the "hidden" dimensions e₄, e₅ encode internal degrees of freedom that standard physics treats as separate fields.
+
+**Complete treatment**: See **[CL33_METHODOLOGY.md](CL33_METHODOLOGY.md)** for the full 18-section guide covering worked examples, the mathematical structure of Cl(3,3), and derivations of all fundamental constants (α, β, c, ℏ, G, k_B, e).
 
 ### Key Proofs
 
