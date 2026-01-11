@@ -322,6 +322,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/CLAUDE.md</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/COMPLETE_GUIDE.md</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
