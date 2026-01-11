@@ -97,6 +97,51 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 
 ---
 
+## Axioms, Inputs, and Predictions
+
+**Clarification**: "Zero free parameters" means no *continuously tuned fit parameters*. QFD has discrete *structural axioms* (physical postulates) and one *measured input* (α).
+
+### Structural Axioms (Discrete Choices)
+
+| Axiom | Statement | Physical Motivation |
+|-------|-----------|---------------------|
+| **A1. Cl(3,3) arena** | Physics occurs in the Clifford algebra Cl(3,3) | Minimal algebra with both spatial and temporal signature |
+| **A2. Golden Loop form** | 1/α = 2π² × (e^β/β) + 1 | Topological constraint from soliton quantization |
+| **A3. Electron scale factor** | S_e = -1/ξ where ξ = φ² | Golden ratio emerges from recursive self-similarity |
+| **A4. Hard-wall boundary** | Solitons have finite support | Prevents infinite self-energy |
+
+### Measured Input
+
+| Input | Value | Source | Independence |
+|-------|-------|--------|--------------|
+| **α** (fine structure) | 1/137.035999206 | CODATA 2018 | **⚠️ See note below** |
+
+**Circularity note**: CODATA α is determined primarily from (a) electron anomaly measurements or (b) atom-recoil experiments. To ensure non-circular validation:
+- **Electron g-2 test**: Should use atom-recoil α (α⁻¹ = 137.035999046) for independence
+- **Muon g-2 test**: Independent regardless of α source (muon data not used in CODATA α)
+
+### Derived Parameters (Computed, Not Fitted)
+
+| Parameter | Formula | Value | Derived From |
+|-----------|---------|-------|--------------|
+| **β** | Solve Golden Loop | 3.043233053 | α + Axiom A2 |
+| **c₁** | ½(1 - α) | 0.496351 | α |
+| **c₂** | 1/β | 0.328598 | β |
+| **R_vac** | (ξ-1)/(ξ+1) = 1/√5 | 0.4472 | Axiom A3 |
+| **V₄** (electron) | -1/β | -0.328598 | β + R_vac |
+
+### Predictions (Testable Outputs)
+
+| Prediction | QFD Value | Measured | Error | Independent of α source? |
+|------------|-----------|----------|-------|--------------------------|
+| Electron g-2 | 0.00115963678 | 0.00115965218 | 0.0013% | ⚠️ Use atom-recoil α |
+| Muon g-2 | 0.00116595205 | 0.00116592071 | 0.0027% | ✅ Yes |
+| Nuclear c₁ | 0.496351 | 0.496297 | 0.01% | ✅ Yes |
+| Nuclear c₂ | 0.328598 | 0.327040 | 0.48% | ✅ Yes |
+| CMB T | 2.7248 K | 2.7255 K | 0.03% | ✅ Yes |
+
+---
+
 ## Methods in Brief
 
 ### The Pipeline
