@@ -239,6 +239,13 @@ QFD derives fundamental constants from geometry rather than fitting them to data
 1/α = 2π² × (e^β / β) + 1
 ```
 
+**Why this form?** This isn't a fit Ansatz—it's a *selection principle* from Cl(3,3) geometry:
+- The 2π² comes from integrating over the soliton's angular structure
+- The e^β/β is the unique solution to the Beltrami eigenvalue problem with hard-wall boundary
+- The +1 is the vacuum offset (α → 0 gives β → ∞, not β → 0)
+
+See [CL33_METHODOLOGY.md](CL33_METHODOLOGY.md) Section 2 for the complete derivation from Clifford algebra constraints.
+
 Solving for β with α = 1/137.035999206:
 
 ```
