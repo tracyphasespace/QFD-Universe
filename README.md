@@ -337,6 +337,32 @@ python analysis/scripts/run_all_validations.py
 
 All 17 tests pass. Runtime: ~15 seconds.
 
+### Expert Reviewer Checklist
+
+Ten focused questions keyed to concrete artifacts to decide whether QFD merits deeper study:
+
+| # | Question | Where to Look |
+|---|----------|---------------|
+| **1** | **Single Input Claim** – Do all downstream theorems genuinely depend only on α via the Golden Loop axiom, or do hidden parameters creep in? | `formalization/QFD/Physics/Postulates.lean` |
+| **2** | **Lean Coverage** – Are any major claims still axiomatically stated rather than proved? (884 theorems, ~1 sorry remaining) | Browse `formalization/QFD/` |
+| **3** | **Golden Loop Proof** – Does the Lean proof rigorously derive β, c₁, c₂, and V₄ from α? Does Python reproduce the same numbers? | `formalization/QFD/GoldenLoop.lean` + `simulation/scripts/derive_beta_from_alpha.py` |
+| **4** | **Nuclear Validation** – Do the nuclear modules really hit 210/210 matches without tuning any coefficients? | `analysis/scripts/validate_conservation_law.py`, `run_all_validations.py` |
+| **5** | **Lepton g-2** – Does the Lean derivation of V₄ align with Python outputs? Is R_vac = 1/√5 derived or fitted? | `formalization/QFD/Lepton/GeometricG2.lean`, `Lepton/RVacDerivation.lean`, `simulation/scripts/verify_lepton_g2.py` |
+| **6** | **Photon/Soliton Sector** – Do the soliton proofs demonstrate photon stability without adjustable parameters? | `formalization/QFD/Soliton/MassEnergyDensity.lean`, `Photon/PhotonSolitonStable.lean`, `simulation/scripts/verify_photon_soliton.py` |
+| **7** | **Cosmology Claims** – How do the cosmology axioms translate into the 2.7248 K CMB prediction? What would falsify them? | `Physics/Postulates.lean:774-1030`, `simulation/scripts/derive_cmb_temperature.py` |
+| **8** | **Runtime & Reproducibility** – Can you re-run all 17 validations in under 20s, confirming no external data or GPU tricks? | `python analysis/scripts/run_all_validations.py` |
+| **9** | **Axiom Transparency** – Are all explicit axiom declarations confined to one file? Do modules indicate where axioms are invoked? | `formalization/QFD/Physics/Postulates.lean` |
+| **10** | **Empirical Breadth** – Which major datasets (neutrino oscillations, structure formation, gravitational lensing) are outside the validation suite? | Current: nuclear, lepton g-2, CMB. Future: see [Contributing](#contributing) |
+
+**Quick verification path:**
+```bash
+git clone https://github.com/tracyphasespace/QFD-Universe.git
+cd QFD-Universe
+pip install numpy scipy pandas matplotlib pyarrow
+python analysis/scripts/run_all_validations.py  # 17/17 in ~15s
+python qfd_proof.py                              # Zero-dependency proof
+```
+
 ---
 
 ## Interactive Visualization
