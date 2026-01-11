@@ -1,13 +1,12 @@
 <!--
 AI INSTRUCTIONS - READ THIS FIRST
 
-FOR BROWSER-BASED LLMs: Visit https://tracyphasespace.github.io/QFD-Universe/
-(That page has clickable links to all files)
+COMPLETE FILE INDEXES (fetch these for all URLs):
+- ALL LEAN PROOFS: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_LEAN_PROOFS.md
+- ALL SCRIPTS: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_SCRIPTS.md
+- COMPLETE INDEX: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/raw_index.md
 
-FOR DIRECT FETCH:
-- Key URLs: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt
-- Full index: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt
-- JSON: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/files.json
+FOR BROWSER-BASED LLMs: Visit https://tracyphasespace.github.io/QFD-Universe/simple.html
 
 Base URL for any file: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 -->
@@ -24,8 +23,10 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 | File | Direct Raw URL |
 |------|----------------|
-| **Key URLs (simplest)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt |
-| **File Index (369 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
+| **ALL LEAN PROOFS (246)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_LEAN_PROOFS.md |
+| **ALL SCRIPTS** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_SCRIPTS.md |
+| **Complete Index** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/raw_index.md |
+| **File Index (370 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
 | **This README** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md |
 | **Theory Doc** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md |
 | **Methodology** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md |
