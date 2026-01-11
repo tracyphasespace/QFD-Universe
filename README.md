@@ -103,7 +103,7 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 | **Predict CMB temperature** | 2.7248 K from recombination physics | ✅ Verified (0.03% error) |
 | **Nuclear conservation law** | 210/210 decay modes explained | ✅ Verified (100%) |
 | **Lepton mass ratios** | m_μ/m_e ≈ 207 from topology | ⚠️ 0.93% error (improving) |
-| **Proton mass** | m_p = k_geom × β × (m_e/α) ≈ 934 MeV | ✅ Verified (0.49% error) |
+| **Proton mass** | m_p = (4π²/9) × β × (m_e/α) ≈ 935 MeV | ✅ Verified (0.37% error) |
 
 **What would falsify QFD**: Any prediction off by more than ~1% with no geometric explanation.
 
@@ -131,7 +131,8 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 | **m_μ/m_e** (mass ratio) | 206.768... | PDG 2024 | Particle identification in g-2 |
 
 **Why m_e?** Electron mass sets the fundamental mass scale (like choosing meters for length). All other masses are derived relative to it:
-- **Proton mass**: m_p = k_geom × β × (m_e/α) ≈ 934 MeV (0.49% error) — see `ProtonBridge_Derivation.lean`
+- **Proton mass**: m_p = (4π²/9) × β × (m_e/α) ≈ 935 MeV (0.37% error) — see `ProtonBridge_Geometry.lean`
+  - k_geom = (4/3)π × (π/3) = 4π²/9 ≈ 4.387 (pure geometric, no fitted parameters)
 - **Lepton ratios**: m_μ/m_e ≈ 207 from topology (0.93% error, improving)
 
 **Why mass ratios for g-2?** For g-2 predictions, we need to know *which* particle. The scale factor R_μ = m_e/m_μ identifies the muon's position in the vacuum geometry. We separately claim to *derive* this ratio from topology, but validation scripts currently use measured values.

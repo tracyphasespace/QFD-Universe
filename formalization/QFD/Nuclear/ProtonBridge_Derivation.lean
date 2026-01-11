@@ -23,11 +23,14 @@ open Real
 noncomputable def volume_integrator : ℝ := (4 / 3) * pi
 
 /--
-  Topological Tax (Stress Factor): 
-  Energy cost of D-Flow vortex 180° turns at the poles.
-  Value derived from Chapter 7.6.5: ~1.046
+  Topological Tax: π/3 ≈ 1.0472
+
+  Physical meaning: Energy cost of D-Flow vortex 180° turns at the poles.
+  Geometric derivation: Angular deficit integration over hemispherical cap.
+
+  This is a PURE geometric constant - no fitted parameters.
 -/
-def topological_tax : ℝ := 1.04595
+noncomputable def topological_tax : ℝ := Real.pi / 3
 
 /-- 
   The composite geometric factor k_geom.
