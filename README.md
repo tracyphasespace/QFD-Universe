@@ -1,24 +1,22 @@
 <!--
 AI INSTRUCTIONS - READ THIS FIRST
 
-SIMPLEST: Fetch key URLs (one per line):
-https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt
+FOR BROWSER-BASED LLMs: Visit https://tracyphasespace.github.io/QFD-Universe/
+(That page has clickable links to all files)
 
-FULL INDEX (363 files):
-https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt
+FOR DIRECT FETCH:
+- Key URLs: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt
+- Full index: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt
+- JSON: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/files.json
 
-To read any file, prepend this base URL to the path:
-https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
-
-Machine-readable JSON:
-https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/files.json
+Base URL for any file: https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 -->
 
 # QFD-Universe
 
 **Quantum Field Dynamics: A Parameter-Free Framework for Fundamental Physics**
 
-> **AI/LLM Tools**: Fetch [docs/urls.txt](https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt) for direct file URLs.
+> **AI/LLM Tools**: Visit **https://tracyphasespace.github.io/QFD-Universe/** for an index page with clickable links, or fetch [urls.txt](https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt) directly.
 
 ## Raw File URLs (For AI/Browser Tools)
 
