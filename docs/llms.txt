@@ -2,10 +2,10 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 370
+total_files: 373
 lean_proofs: 247
 python_scripts: 40
-documentation: 74
+documentation: 77
 proven_theorems: 886
 proven_lemmas: 215
 sorries: 0
@@ -32,13 +32,16 @@ analysis/scripts/run_all_validations.py
 # /qfd/ - Core Python library
 
 
-# CORE DOCUMENTATION (74 files)
+# CORE DOCUMENTATION (77 files)
+ALL_LEAN_PROOFS.md
+ALL_SCRIPTS.md
 CL33_METHODOLOGY.md
 LLM_CONTEXT.md
 README.md
 THEORY.md
 analysis/nuclear/README.md
 analysis/reports/FINAL_VALIDATION_REPORT.md
+docs/raw_index.md
 formalization/QFD/AGENTS.md
 formalization/QFD/AXIOM_AUDIT.md
 formalization/QFD/Atomic/ATOMIC_SPECTROSCOPY_COMPLETE.md

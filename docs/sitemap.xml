@@ -16,6 +16,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_LEAN_PROOFS.md</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_SCRIPTS.md</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -200,6 +212,12 @@
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/raw_index.md</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/robots.txt</loc>
