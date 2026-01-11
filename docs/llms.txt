@@ -1,49 +1,38 @@
 # QFD-Universe LLM Context
 # Quantum Field Dynamics - Formal Proofs & Validation
 
-## About This Repository
-QFD-Universe is a public mirror of the Quantum Field Dynamics formalization project.
-It contains Lean 4 formal proofs and Python validation scripts.
+# STATISTICS
+total_files: 363
+lean_proofs: 243
+python_scripts: 39
+documentation: 73
+proven_theorems: 886
+proven_lemmas: 215
+sorries: 0
 
-## Key Statistics
-- Total Files: 363
-- Lean Proofs: 243
-- Python Scripts: 39
-- Documentation: 73
-- Proven Theorems: 886
-- Proven Lemmas: 215
-- Total Proven Statements: 1,101
-- Sorries (incomplete proofs): 0
-
-## Repository Structure
-- /formalization/QFD/ - Lean 4 proofs (Cl(3,3) geometric algebra)
-- /analysis/ - Python validation scripts
-- /simulation/ - Numerical experiments
-- /qfd/ - Core Python library
-- /visualizations/ - Figures and plots
-
-## Key Entry Points
-1. README.md - Project overview
-2. THEORY.md - Physics framework description
-3. LLM_CONTEXT.md - AI assistant briefing
-4. formalization/QFD/ProofLedger.lean - Master claim-to-proof mapping
-5. formalization/QFD/Physics/Postulates.lean - All 11 axioms
-
-## Core Physics Claims
-- Spacetime emerges from Cl(3,3) centralizer structure
-- Mass arises from internal momentum in extra dimensions
-- Fundamental constants (alpha, beta, c, hbar, G) are geometrically related
-- Planck constant derived from topology: hbar = Gamma * lambda * L0 * c
-
-## Raw URL Base
+# RAW URL BASE
+# Prepend this to any path below to get raw file content:
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 
-## File Index
-# Prepend base URL above to get raw file content
-# Format: path
+# KEY ENTRY POINTS
+README.md
+THEORY.md
+LLM_CONTEXT.md
+CL33_METHODOLOGY.md
+qfd_proof.py
+formalization/QFD/ProofLedger.lean
+formalization/QFD/Physics/Postulates.lean
+formalization/QFD/GoldenLoop.lean
+analysis/scripts/run_all_validations.py
+
+# STRUCTURE
+# /formalization/QFD/ - Lean 4 proofs
+# /analysis/ - Python validation scripts
+# /simulation/ - Numerical experiments
+# /qfd/ - Core Python library
 
 
-### Core Documentation
+# CORE DOCUMENTATION (73 files)
 CL33_METHODOLOGY.md
 LLM_CONTEXT.md
 README.md
@@ -118,7 +107,7 @@ formalization/QFD/UNIFIEDFORCES_STATUS.md
 formalization/QFD/Vacuum/VACUUM_HYDRODYNAMICS_INTEGRATION.md
 visualizations/README.md
 
-### Lean Proofs
+# LEAN PROOFS (243 files)
 formalization/QFD.lean
 formalization/QFD/AdjointStability_Complete.lean
 formalization/QFD/AngularSelection.lean
@@ -363,7 +352,7 @@ formalization/QFD/Weak/ChiralAnomaly.lean
 formalization/QFD/Weak/DoubleBetaDecay.lean
 formalization/QFD/Weak/PionGeometry.lean
 
-### Python Code
+# PYTHON CODE (39 files)
 analysis/nuclear/scripts/analyze_all_decay_transitions.py
 analysis/nuclear/scripts/integer_ladder_test.py
 analysis/nuclear/scripts/nucleus_classifier.py
@@ -404,11 +393,11 @@ simulation/scripts/verify_lepton_g2.py
 simulation/scripts/verify_photon_soliton.py
 simulation/src/shared_constants.py
 
-### LaTeX Manuscripts
+# LATEX MANUSCRIPTS (2 files)
 formalization/QFD/Cosmology/CMB_AxisOfEvil_COMPLETE_v1.1.tex
 formalization/QFD/Cosmology/PAPER_TEMPLATE_WITH_FORMALIZATION.tex
 
-### Other
+# OTHER (6 files)
 docs/llms.txt
 docs/robots.txt
 formalization/QFD/CLAIMS_INDEX.txt

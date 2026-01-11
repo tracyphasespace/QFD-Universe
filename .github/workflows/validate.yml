@@ -1,0 +1,83 @@
+name: QFD Validation Suite
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'analysis/**'
+      - 'simulation/**'
+      - 'qfd/**'
+      - 'qfd_proof.py'
+      - 'requirements.txt'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  python-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run zero-dependency proof
+      run: python qfd_proof.py
+
+    - name: Run master validation suite
+      run: python analysis/scripts/run_all_validations.py
+
+    - name: Run Golden Loop verification
+      run: python simulation/scripts/verify_golden_loop.py
+
+    - name: Run g-2 validation
+      run: python analysis/scripts/validate_g2_corrected.py
+
+  lean-check:
+    runs-on: ubuntu-latest
+    # Only check Lean on push to main (not PRs - saves time)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Lean 4 (elan)
+      run: |
+        curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+        echo "$HOME/.elan/bin" >> $GITHUB_PATH
+
+    - name: Cache Mathlib
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.elan
+          formalization/.lake
+        key: ${{ runner.os }}-lean-${{ hashFiles('formalization/lean-toolchain', 'formalization/lakefile.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-lean-
+
+    - name: Build Lean proofs
+      working-directory: formalization
+      run: |
+        lake build QFD
+
+    - name: Count sorries
+      working-directory: formalization
+      run: |
+        SORRY_COUNT=$(grep -r "sorry" QFD/ --include="*.lean" | wc -l)
+        echo "Sorry count: $SORRY_COUNT"
+        if [ "$SORRY_COUNT" -gt 0 ]; then
+          echo "WARNING: Found $SORRY_COUNT incomplete proofs (sorries)"
+        fi
