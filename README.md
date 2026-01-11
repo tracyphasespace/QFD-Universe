@@ -2,7 +2,7 @@
 
 **Quantum Field Dynamics: A Parameter-Free Framework for Fundamental Physics**
 
-[![Lean4](https://img.shields.io/badge/Lean4-849_Theorems-green)](formalization/)
+[![Lean4](https://img.shields.io/badge/Lean4-886_Theorems-green)](formalization/)
 [![Validation](https://img.shields.io/badge/Tests-17%2F17_Passed-brightgreen)](analysis/scripts/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue)](simulation/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
@@ -146,7 +146,7 @@ QFD-Universe/
 ├── THEORY.md              # Full theory documentation
 ├── qfd_proof.py           # Zero-dependency standalone proof
 │
-├── formalization/         # Lean4 proofs (849 theorems)
+├── formalization/         # Lean4 proofs (886 theorems, 0 sorries)
 │   └── QFD/
 │       ├── GA/            # Geometric Algebra Cl(3,3)
 │       ├── Lepton/        # GeometricG2.lean (g-2 proof)
@@ -344,7 +344,7 @@ Ten focused questions keyed to concrete artifacts to decide whether QFD merits d
 | # | Question | Where to Look |
 |---|----------|---------------|
 | **1** | **Single Input Claim** – Do all downstream theorems genuinely depend only on α via the Golden Loop axiom, or do hidden parameters creep in? | `formalization/QFD/Physics/Postulates.lean` |
-| **2** | **Lean Coverage** – Are any major claims still axiomatically stated rather than proved? (884 theorems, ~1 sorry remaining) | Browse `formalization/QFD/` |
+| **2** | **Lean Coverage** – Are any major claims still axiomatically stated rather than proved? (886 theorems + 215 lemmas = 1,101 proven, 0 sorries) | Browse `formalization/QFD/` |
 | **3** | **Golden Loop Proof** – Does the Lean proof rigorously derive β, c₁, c₂, and V₄ from α? Does Python reproduce the same numbers? | `formalization/QFD/GoldenLoop.lean` + `simulation/scripts/derive_beta_from_alpha.py` |
 | **4** | **Nuclear Validation** – Do the nuclear modules really hit 210/210 matches without tuning any coefficients? | `analysis/scripts/validate_conservation_law.py`, `run_all_validations.py` |
 | **5** | **Lepton g-2** – Does the Lean derivation of V₄ align with Python outputs? Is R_vac = 1/√5 derived or fitted? | `formalization/QFD/Lepton/GeometricG2.lean`, `Lepton/RVacDerivation.lean`, `simulation/scripts/verify_lepton_g2.py` |
