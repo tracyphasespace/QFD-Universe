@@ -2,9 +2,9 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 364
-lean_proofs: 243
-python_scripts: 39
+total_files: 369
+lean_proofs: 247
+python_scripts: 40
 documentation: 73
 proven_theorems: 886
 proven_lemmas: 215
@@ -107,7 +107,7 @@ formalization/QFD/UNIFIEDFORCES_STATUS.md
 formalization/QFD/Vacuum/VACUUM_HYDRODYNAMICS_INTEGRATION.md
 visualizations/README.md
 
-# LEAN PROOFS (243 files)
+# LEAN PROOFS (247 files)
 formalization/QFD.lean
 formalization/QFD/AdjointStability_Complete.lean
 formalization/QFD/AngularSelection.lean
@@ -153,6 +153,7 @@ formalization/QFD/Cosmology/RealTimeCosmology.lean
 formalization/QFD/Cosmology/ScatteringBias.lean
 formalization/QFD/Cosmology/VacuumDensityMatch.lean
 formalization/QFD/Cosmology/VacuumRefraction.lean
+formalization/QFD/Cosmology/VolumeBalance.lean
 formalization/QFD/Electrodynamics/AharonovBohm.lean
 formalization/QFD/Electrodynamics/CerenkovReal.lean
 formalization/QFD/Electrodynamics/DispersionRelation.lean
@@ -190,6 +191,7 @@ formalization/QFD/Gravity/GeometricCoupling.lean
 formalization/QFD/Gravity/GeometricProjection_Integration.lean
 formalization/QFD/Gravity/Gravity_Projection.lean
 formalization/QFD/Gravity/PerihelionShift.lean
+formalization/QFD/Gravity/ResidualStrain.lean
 formalization/QFD/Gravity/SchwarzschildLink.lean
 formalization/QFD/Gravity/Shell_Theorem_Harmonic.lean
 formalization/QFD/Gravity/SnellLensing.lean
@@ -331,7 +333,9 @@ formalization/QFD/Soliton/TopologicalStability_Refactored.lean
 formalization/QFD/SpacetimeEmergence_Complete.lean
 formalization/QFD/SpectralGap.lean
 formalization/QFD/StabilityCriterion.lean
+formalization/QFD/Thermodynamics/BoltzmannEntropy.lean
 formalization/QFD/Topology/FormFactorCore.lean
+formalization/QFD/Topology/IntegerBridge.lean
 formalization/QFD/TopologyFormFactor.lean
 formalization/QFD/ToyModel.lean
 formalization/QFD/Vacuum/StrongCP.lean
@@ -352,7 +356,7 @@ formalization/QFD/Weak/ChiralAnomaly.lean
 formalization/QFD/Weak/DoubleBetaDecay.lean
 formalization/QFD/Weak/PionGeometry.lean
 
-# PYTHON CODE (39 files)
+# PYTHON CODE (40 files)
 analysis/nuclear/scripts/analyze_all_decay_transitions.py
 analysis/nuclear/scripts/integer_ladder_test.py
 analysis/nuclear/scripts/nucleus_classifier.py
@@ -369,6 +373,7 @@ analysis/scripts/nucleus_classifier.py
 analysis/scripts/run_all_validations.py
 analysis/scripts/validate_conservation_law.py
 analysis/scripts/validate_g2_corrected.py
+analysis/scripts/validate_g2_noncircular.py
 analysis/scripts/validate_lepton_isomers.py
 analysis/scripts/validate_proton_engine.py
 analysis/src/__init__.py

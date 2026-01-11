@@ -148,6 +148,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_g2_noncircular.py</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scripts/validate_lepton_isomers.py</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -592,6 +598,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Cosmology/VolumeBalance.lean</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/DEFINITION_INDEX.md</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -875,6 +887,12 @@
   </url>
   <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Gravity/PerihelionShift.lean</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Gravity/ResidualStrain.lean</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1942,7 +1960,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Thermodynamics/BoltzmannEntropy.lean</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Topology/FormFactorCore.lean</loc>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Topology/IntegerBridge.lean</loc>
     <lastmod>2026-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
