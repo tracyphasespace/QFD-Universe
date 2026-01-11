@@ -51,7 +51,7 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 **Physics has become a collection of black boxes.** Quantum mechanics says "shut up and calculate." General relativity breaks down at singularities. The Standard Model has 26 free parameters nobody can explain. These theories work in their domains but contradict each other at the boundaries.
 
-**QFD is a Glass Box.** One theory. One algebra. One chain of derivations from a single measured constant (α ≈ 1/137) to everything else. Every step is visible, verifiable, and falsifiable.
+**QFD is a Glass Box.** One theory. One algebra. One chain of derivations from a single measured constant (α ≈ 1/137) to everything else. Every step is visible, verifiable, and falsifiable. **At every opportunity, we validate predictions against experimental data.**
 
 ### What Makes QFD Different
 
@@ -68,6 +68,17 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 The Glass Box is deliberately fragile. **Breaking any wall breaks the entire model.** If one prediction fails by more than measurement error, the whole framework is wrong—not just a parameter to tweak.
 
 This is a feature, not a bug. It means QFD is genuinely falsifiable.
+
+### Validation Philosophy
+
+**We test everything.** Every derived quantity is compared against experiment:
+
+- Derive β from α → **validate** against nuclear data (c₁, c₂)
+- Derive g-2 from geometry → **validate** against Harvard/Fermilab measurements
+- Derive proton mass from m_e → **validate** against PDG value (0.49% error)
+- Derive CMB temperature → **validate** against Planck satellite (0.03% error)
+
+If QFD derived a quantity but refused to compare it to measurement, that would be a red flag. Instead, this repository contains **17 independent validation scripts** that compare QFD predictions to experimental data. Run them yourself: `python analysis/scripts/run_all_validations.py`
 
 ### What's NOT in QFD
 
