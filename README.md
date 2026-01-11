@@ -25,7 +25,7 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 | File | Direct Raw URL |
 |------|----------------|
 | **Key URLs (simplest)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt |
-| **File Index (363 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
+| **File Index (369 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
 | **This README** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md |
 | **Theory Doc** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md |
 | **Methodology** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md |
@@ -38,7 +38,7 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 **Base URL pattern**: `https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/{path}`
 
-**Full file index**: Fetch https://tracyphasespace.github.io/QFD-Universe/llms.txt for all 363 files
+**Full file index**: Fetch https://tracyphasespace.github.io/QFD-Universe/llms.txt for all 369 files
 
 [![Lean4](https://img.shields.io/badge/Lean4-886_Theorems-green)](formalization/)
 [![Validation](https://img.shields.io/badge/Tests-17%2F17_Passed-brightgreen)](analysis/scripts/)

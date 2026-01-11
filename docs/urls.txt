@@ -10,5 +10,9 @@ https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/analysis/scr
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/GoldenLoop.lean
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Physics/Postulates.lean
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Lepton/GeometricG2.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Topology/IntegerBridge.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Cosmology/VolumeBalance.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Gravity/ResidualStrain.lean
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Thermodynamics/BoltzmannEntropy.lean
 https://tracyphasespace.github.io/QFD-Universe/llms.txt
 https://tracyphasespace.github.io/QFD-Universe/files.json
