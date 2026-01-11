@@ -13,6 +13,11 @@
 > ```
 > https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
 > ```
+>
+> **AI-Browsable Index**: https://tracyphasespace.github.io/QFD-Universe/
+> - [llms.txt](https://tracyphasespace.github.io/QFD-Universe/llms.txt) - AI metadata
+> - [files.json](https://tracyphasespace.github.io/QFD-Universe/files.json) - Machine-readable index
+> - [sitemap.xml](https://tracyphasespace.github.io/QFD-Universe/sitemap.xml) - Full sitemap
 
 ---
 
