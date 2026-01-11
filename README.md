@@ -49,17 +49,16 @@ Solving for β with α = 1/137.035999206:
 
 ```bash
 python analysis/scripts/run_all_validations.py
-# Runtime: ~12 seconds
-# Result: 12/12 PASSED (master suite)
-# Plus 5 additional standalone validations
+# Runtime: ~15 seconds
+# Result: 17/17 PASSED
 ```
 
 ### Headline Results
 
 | Prediction | QFD Value | Measured | Error | Free Params |
 |------------|-----------|----------|-------|-------------|
-| **Electron g-2** | 0.00115963678 | 0.00115965218 | **0.0013%** | 0 |
-| **Muon g-2** | 0.00116595205 | 0.00116592059 | **0.0027%** | 0 |
+| **Electron g-2** | 0.00115963678 | 0.00115965218 (Harvard 2008) | **0.0013%** | 0 |
+| **Muon g-2** | 0.00116595205 | 0.00116592071 (Fermilab 2025) | **0.0027%** | 0 |
 | **CMB Temperature** | 2.7248 K | 2.7255 K | **0.03%** | 0 |
 | **Muon/Electron Mass** | 205.9 | 206.8 | **0.93%** | 0 |
 | **Nuclear c₁** | 0.496351 | 0.496297 | **0.01%** | 0 |
@@ -70,14 +69,14 @@ python analysis/scripts/run_all_validations.py
 | Category | Script | Status | Key Result |
 |----------|--------|--------|------------|
 | **Golden Spike** | `qfd_proof.py` | ✅ PASS | Complete α→β→c₁,c₂,V₄ chain |
-| | `run_all_validations.py` | ✅ PASS | 12/12 tests in 12 seconds |
+| | `run_all_validations.py` | ✅ PASS | 17/17 tests in 15 seconds |
 | | `validate_g2_corrected.py` | ✅ PASS | g-2: 0.0013%, 0.0027% error |
 | | `lepton_stability.py` | ✅ PASS | Mass ratio 0.93% (N=19 topology) |
 | | `derive_cmb_temperature.py` | ✅ PASS | T_CMB = 2.7248 K |
 | **Foundation** | `verify_golden_loop.py` | ✅ PASS | β = 3.043233, 0% closure error |
 | | `derive_beta_from_alpha.py` | ✅ PASS | Golden Loop verified |
 | | `QFD_ALPHA_DERIVED_CONSTANTS.py` | ✅ PASS | All 17 coefficients from α |
-| | `derive_hbar_from_topology.py` | ✅ PASS | ℏ_eff CV = 1.77% |
+| | `derive_hbar_from_topology.py` | ✅ PASS | ℏ_eff CV < 2% |
 | **Nuclear** | `validate_conservation_law.py` | ✅ PASS | 210/210 perfect (p < 10⁻⁴²⁰) |
 | | `analyze_all_decay_transitions.py` | ✅ PASS | β⁻ decay: 99.7% match |
 | | `validate_fission_pythagorean.py` | ✅ PASS | Tacoma Narrows: 6/6 |
@@ -137,8 +136,11 @@ QFD-Universe/
 │   │   └── shared_constants.py  # Single source of truth
 │   └── scripts/
 │       ├── verify_golden_loop.py
-│       ├── verify_lepton_g2.py      # NEW: Parameter-free g-2
-│       ├── verify_photon_soliton.py # NEW: Soliton stability
+│       ├── verify_lepton_g2.py              # Parameter-free g-2
+│       ├── verify_photon_soliton.py         # Soliton stability
+│       ├── derive_hbar_from_topology.py     # CPU single-threaded
+│       ├── derive_hbar_from_topology_parallel.py  # CPU multi-core
+│       ├── derive_hbar_from_topology_gpu.py # CUDA GPU (fastest)
 │       └── derive_*.py
 │
 ├── analysis/              # Data verification
@@ -179,7 +181,7 @@ This proves core claims using **only Python's math module** - no external depend
 python analysis/scripts/run_all_validations.py
 ```
 
-**Expected: 12/12 tests passed** (~12 seconds)
+**Expected: 17/17 tests passed** (~15 seconds)
 
 ### 4. Run Individual Validations
 
@@ -254,6 +256,32 @@ Observed: 2.7255 K
 Error: 0.03%
 ```
 
+### 5. Planck Constant from Topology
+
+QFD derives ℏ from the energy-frequency relationship of soliton solutions:
+
+```
+ℏ_eff = E / ω
+```
+
+Where the soliton is relaxed toward a Beltrami eigenfield (curl B = λB).
+
+**Three computation options available:**
+
+| Script | Method | CV(ℏ) | Time (64³) | Requirements |
+|--------|--------|-------|------------|--------------|
+| `derive_hbar_from_topology.py` | CPU single | ~2% | ~60s | NumPy only |
+| `derive_hbar_from_topology_parallel.py` | CPU multi | **0.87%** | ~12s | NumPy + multiprocessing |
+| `derive_hbar_from_topology_gpu.py` | CUDA GPU | **1.12%** | ~4s | PyTorch + CUDA |
+
+```bash
+# CPU parallel (recommended for most users)
+python simulation/scripts/derive_hbar_from_topology_parallel.py --relax
+
+# GPU accelerated (fastest, requires NVIDIA GPU)
+python simulation/scripts/derive_hbar_from_topology_gpu.py --N 128
+```
+
 ---
 
 ## For Reviewers
@@ -283,7 +311,7 @@ Every result can be reproduced with:
 python analysis/scripts/run_all_validations.py
 ```
 
-All 17 tests pass. Runtime: ~12 seconds.
+All 17 tests pass. Runtime: ~15 seconds.
 
 ---
 
