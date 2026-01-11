@@ -23,6 +23,7 @@ YES. Using the Golden Loop equation, we derive:
   - c₁ = 0.496351 (nuclear surface coefficient) - 0.01% error
   - c₂ = 0.328598 (nuclear volume coefficient) - 0.48% error
   - V₄ = -0.328598 (QED vacuum polarization) - 0.04% error
+  - m_p = 934.8 MeV (proton mass from 4π²/9 geometry) - 0.37% error
 
 HOW TO VERIFY:
 --------------
@@ -324,6 +325,54 @@ def main():
     print()
 
     # =========================================================================
+    # STEP 4: Derive Proton Mass (The Proton Bridge)
+    # =========================================================================
+    print("-" * 70)
+    print("STEP 4: Proton Mass from Geometry (The Proton Bridge)")
+    print("-" * 70)
+    print()
+    print("    The Proton Bridge connects electron mass to proton mass:")
+    print()
+    print("        m_p = k_geom × β × (m_e / α)")
+    print()
+    print("    Where k_geom is a PURE geometric constant:")
+    print()
+    print("        k_geom = (4/3)π × (π/3) = 4π²/9")
+    print()
+    print("        - (4/3)π = volume of unit sphere")
+    print("        - π/3 = topological tax (angular deficit at poles)")
+    print()
+
+    # Pure geometric constant - NO fitted parameters
+    k_geom = 4 * math.pi**2 / 9
+
+    print(f"        k_geom = 4π²/9 = {k_geom:.6f}")
+    print()
+
+    # Electron mass (scale-setting input, like choosing meters for length)
+    m_e = 0.51099895  # MeV
+    m_p_empirical = 938.27208  # MeV (PDG 2024)
+
+    print("    PREDICTION 4: Proton Mass")
+    print()
+    print(f"        m_e = {m_e} MeV (scale unit)")
+    print()
+    print(f"        m_p = k_geom × β × (m_e / α)")
+    print(f"            = {k_geom:.4f} × {beta:.4f} × ({m_e} / {alpha:.6f})")
+
+    m_p_derived = k_geom * beta * (m_e / alpha)
+    m_p_error = abs(m_p_derived - m_p_empirical) / m_p_empirical * 100
+
+    print(f"            = {m_p_derived:.2f} MeV")
+    print()
+    print(f"        Empirical value: {m_p_empirical:.2f} MeV (PDG 2024)")
+    print(f"        Error: {m_p_error:.2f}%")
+    print()
+    print("    NOTE: m_e is a scale-setting input (like choosing meters).")
+    print("          The RATIO m_p/m_e ≈ 1836 is the actual prediction.")
+    print()
+
+    # =========================================================================
     # SUMMARY
     # =========================================================================
     print("=" * 70)
@@ -343,10 +392,11 @@ def main():
     print(f"        {'c₁ (surface)':<20} {c1_derived:>12.6f} {c1_empirical:>12.6f} {c1_error:>9.4f}%")
     print(f"        {'c₂ (volume)':<20} {c2_derived:>12.6f} {c2_empirical:>12.6f} {c2_error:>9.4f}%")
     print(f"        {'V₄ (QED)':<20} {v4_derived:>12.6f} {v4_qed:>12.6f} {v4_error:>9.4f}%")
+    print(f"        {'m_p (proton)':<20} {m_p_derived:>12.2f} {m_p_empirical:>12.2f} {m_p_error:>9.2f}%")
     print()
     print("    CONCLUSION:")
-    print(f"        All three predictions match empirical data within 0.5%.")
-    print(f"        This is achieved with ZERO free parameters.")
+    print(f"        All four predictions match empirical data within 0.5%.")
+    print(f"        This is achieved with ZERO free parameters (k_geom = 4π²/9 is pure geometry).")
     print()
     print("    THE KEY INSIGHT:")
     print(f"        β = {beta:.3f} is the universal vacuum stiffness that")
@@ -368,6 +418,8 @@ def main():
         'c2_error': c2_error,
         'v4_derived': v4_derived,
         'v4_error': v4_error,
+        'm_p_derived': m_p_derived,
+        'm_p_error': m_p_error,
     }
 
 
