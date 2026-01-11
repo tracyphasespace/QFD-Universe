@@ -23,7 +23,143 @@ https://tracyphasespace.github.io/QFD-Universe/files.json
 [![Python](https://img.shields.io/badge/Python-3.9+-blue)](simulation/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-## For AI Assistants
+---
+
+## The Glass Box
+
+**Physics has become a collection of black boxes.** Quantum mechanics says "shut up and calculate." General relativity breaks down at singularities. The Standard Model has 26 free parameters nobody can explain. These theories work in their domains but contradict each other at the boundaries.
+
+**QFD is a Glass Box.** One theory. One algebra. One chain of derivations from a single measured constant (α ≈ 1/137) to everything else. Every step is visible, verifiable, and falsifiable.
+
+### What Makes QFD Different
+
+| Black Box Physics | Glass Box (QFD) |
+|-------------------|-----------------|
+| 26+ free parameters | **1 input** (α only) |
+| Complex numbers required | **Real geometry only** |
+| Separate theories per scale | **Same algebra everywhere** |
+| Singularities, infinities | **None allowed** |
+| "Shut up and calculate" | **See every derivation** |
+
+### The Fragile Promise
+
+The Glass Box is deliberately fragile. **Breaking any wall breaks the entire model.** If one prediction fails by more than measurement error, the whole framework is wrong—not just a parameter to tweak.
+
+This is a feature, not a bug. It means QFD is genuinely falsifiable.
+
+### What's NOT in QFD
+
+- ✗ Imaginary numbers (complex i is replaced by geometric bivectors)
+- ✗ Extra dimensions beyond 6 (Cl(3,3) is complete)
+- ✗ Dark matter/energy as separate substances
+- ✗ Singularities or infinities anywhere
+- ✗ Free parameters to tune after the fact
+
+---
+
+## Project Goals
+
+QFD aims to derive ALL fundamental constants from geometry. Here are the testable claims:
+
+| Goal | Testable Prediction | Current Status |
+|------|---------------------|----------------|
+| **Derive vacuum stiffness** | β = 3.043233 from α via Golden Loop | ✅ Proven (0% error) |
+| **Predict nuclear coefficients** | c₁ = 0.496, c₂ = 0.328 from α alone | ✅ Verified (0.01%, 0.48%) |
+| **Predict electron g-2** | 0.00115963678 with zero free params | ✅ Verified (0.0013% error) |
+| **Predict muon g-2** | 0.00116595205 with zero free params | ✅ Verified (0.0027% error) |
+| **Predict CMB temperature** | 2.7248 K from recombination physics | ✅ Verified (0.03% error) |
+| **Nuclear conservation law** | 210/210 decay modes explained | ✅ Verified (100%) |
+| **Lepton mass ratios** | m_μ/m_e ≈ 207 from topology | ⚠️ 0.93% error (improving) |
+
+**What would falsify QFD**: Any prediction off by more than ~1% with no geometric explanation.
+
+---
+
+## Methods in Brief
+
+### The Pipeline
+
+```
+α (measured)  →  Golden Loop  →  β (derived)  →  All other constants
+    ↓                                                    ↓
+1/137.036          e^β/β = (α⁻¹-1)/2π²           c₁, c₂, V₄, R_vac, ξ...
+```
+
+### Step-by-Step
+
+1. **Input**: Fine structure constant α = 1/137.035999206 (CODATA)
+2. **Golden Loop**: Solve the transcendental equation `1/α = 2π²(e^β/β) + 1`
+3. **Result**: β = 3.043233053 (vacuum stiffness)
+4. **Derive everything else**:
+   - Nuclear surface: c₁ = ½(1 - α)
+   - Nuclear volume: c₂ = 1/β
+   - g-2 coefficient: V₄ = -1/β
+   - Vacuum scale: R_vac = 1/√5 (from golden ratio)
+
+### Why Cl(3,3)?
+
+The Clifford algebra Cl(3,3) with signature (+,+,+,−,−,−) is the "natural coordinate space" because:
+
+- **Closure**: All physics operations stay within one algebra
+- **Centralizer = Physics**: Symmetries emerge from commutation structure
+- **No complex numbers**: The "imaginary" i is replaced by geometric bivectors
+- **6D is complete**: Three space + three internal (not "extra dimensions")
+
+See [CL33_METHODOLOGY.md](CL33_METHODOLOGY.md) for the complete 18-section explanation.
+
+---
+
+## Navigate by Audience
+
+### For Journalists / Non-Specialists
+
+**The one-paragraph summary**: QFD claims that the "magic numbers" of physics (like 137, the fine structure constant) aren't arbitrary—they're geometric necessities, like how π must appear in any circle. Starting from just one measured number, QFD derives dozens of others that physicists normally have to measure separately. If this works, it means the universe is simpler than we thought.
+
+**Start here**: Run `python qfd_proof.py` and watch it derive nuclear physics coefficients from electromagnetism in 20 lines of code.
+
+### For Physicists (QFT/Particle/Nuclear)
+
+**Key question**: Can a single transcendental equation (Golden Loop) really connect α to nuclear binding?
+
+**Verify it yourself**:
+```bash
+python analysis/scripts/run_all_validations.py  # 17/17 in 15 seconds
+python qfd_proof.py                              # Zero-dependency proof
+```
+
+**Technical deep dive**: [THEORY.md](THEORY.md) + [CL33_METHODOLOGY.md](CL33_METHODOLOGY.md)
+
+**Lean proofs**: `formalization/QFD/GoldenLoop.lean`, `Lepton/GeometricG2.lean`
+
+### For Astrophysicists / Cosmologists
+
+**Key claims**: CMB temperature derived (2.7248 K, 0.03% error), no dark energy needed (vacuum structure explains acceleration).
+
+**Verify**: `python analysis/scripts/derive_cmb_temperature.py`
+
+**Proofs**: `formalization/QFD/Cosmology/`
+
+### For AI Assistants
+
+**Step 1**: Fetch the file index:
+```
+https://tracyphasespace.github.io/QFD-Universe/llms.txt
+```
+
+**Step 2**: Prepend this base URL to any path:
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
+```
+
+**Quick links**:
+- [llms.txt](https://tracyphasespace.github.io/QFD-Universe/llms.txt) - File index (362 files)
+- [files.json](https://tracyphasespace.github.io/QFD-Universe/files.json) - Machine-readable JSON
+- [LLM_CONTEXT.md](LLM_CONTEXT.md) - Full context
+- [CL33_METHODOLOGY.md](CL33_METHODOLOGY.md) - Why Cl(3,3) and how constants emerge
+
+---
+
+## Overview
 
 **Step 1**: Fetch the file index:
 ```
