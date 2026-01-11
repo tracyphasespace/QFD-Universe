@@ -140,6 +140,19 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 | Nuclear c₂ | 0.328598 | 0.327040 | 0.48% | ✅ Yes |
 | CMB T | 2.7248 K | 2.7255 K | 0.03% | ✅ Yes |
 
+### Explicit Falsifiers
+
+**If any of these are measured, QFD is wrong:**
+
+1. **β ≠ 3.043**: If improved α measurement yields β outside [3.04, 3.05] via Golden Loop, framework fails
+2. **Electron g-2 off by >0.01%**: Using atom-recoil α, if predicted g-2 deviates by more than 10× current error
+3. **Muon g-2 sign flip**: If muon correction is negative (currently predicted positive), geometric mechanism fails
+4. **Nuclear c₂ wrong sign**: If volume coefficient is positive (not negative), soliton model breaks
+5. **New stable isotope violates Z(A)**: Any stable nuclide with Z far from c₁A^(2/3) + c₂A contradicts valley formula
+6. **CMB temperature >1% off**: If T_CMB ≠ 2.72±0.03 K from QFD's recombination calculation
+
+**These are not "parameters to adjust"** - they are hard predictions. Failure of any one breaks the entire chain.
+
 ---
 
 ## Methods in Brief
