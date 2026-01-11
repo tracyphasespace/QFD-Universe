@@ -1,10 +1,18 @@
 # LLM Context: Understanding QFD
 
-**AI-Browsable Index**: https://tracyphasespace.github.io/QFD-Universe/
-- llms.txt: https://tracyphasespace.github.io/QFD-Universe/llms.txt
-- files.json: https://tracyphasespace.github.io/QFD-Universe/files.json
+## FILE INDEX - FETCH THIS FIRST
 
-RAW URL INDEX (copy-paste these):
+```
+https://tracyphasespace.github.io/QFD-Universe/llms.txt
+```
+
+This contains all 361 files. To read any file, prepend:
+
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
+```
+
+## QUICK ACCESS URLs (copy-paste these):
 
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/qfd_proof.py
 

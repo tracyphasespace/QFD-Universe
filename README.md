@@ -1,3 +1,19 @@
+<!--
+AI INSTRUCTIONS - READ THIS FIRST
+
+Fetch this file for the complete project index:
+https://tracyphasespace.github.io/QFD-Universe/llms.txt
+
+To read any file, prepend this base URL to the path:
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
+
+Example - to read THEORY.md:
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+
+Machine-readable index (JSON):
+https://tracyphasespace.github.io/QFD-Universe/files.json
+-->
+
 # QFD-Universe
 
 **Quantum Field Dynamics: A Parameter-Free Framework for Fundamental Physics**
@@ -7,17 +23,27 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue)](simulation/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
----
+## For AI Assistants
 
-> **For AI Assistants**: Fetch the context file directly:
-> ```
-> https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md
-> ```
->
-> **AI-Browsable Index**: https://tracyphasespace.github.io/QFD-Universe/
-> - [llms.txt](https://tracyphasespace.github.io/QFD-Universe/llms.txt) - AI metadata
-> - [files.json](https://tracyphasespace.github.io/QFD-Universe/files.json) - Machine-readable index
-> - [sitemap.xml](https://tracyphasespace.github.io/QFD-Universe/sitemap.xml) - Full sitemap
+**Step 1**: Fetch the file index:
+```
+https://tracyphasespace.github.io/QFD-Universe/llms.txt
+```
+
+**Step 2**: To read any file, prepend this base URL to paths from llms.txt:
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
+```
+
+**Example**: Reading the theory document:
+```
+https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md
+```
+
+**Quick links**:
+- [llms.txt](https://tracyphasespace.github.io/QFD-Universe/llms.txt) - File index (361 files)
+- [files.json](https://tracyphasespace.github.io/QFD-Universe/files.json) - Machine-readable JSON
+- [LLM_CONTEXT.md](https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/LLM_CONTEXT.md) - Full context
 
 ---
 
