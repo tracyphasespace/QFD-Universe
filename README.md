@@ -16,7 +16,7 @@ Base URL for any file: https://raw.githubusercontent.com/tracyphasespace/QFD-Uni
 
 **Quantum Field Dynamics: A Parameter-Free Framework for Fundamental Physics**
 
-> **AI/LLM Tools**: Visit **https://tracyphasespace.github.io/QFD-Universe/** for an index page with clickable links, or fetch [urls.txt](https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/urls.txt) directly.
+> **AI/LLM Tools**: Visit **https://tracyphasespace.github.io/QFD-Universe/simple.html** for a minimal HTML page with direct links (no JavaScript required).
 
 ## Raw File URLs (For AI/Browser Tools)
 
