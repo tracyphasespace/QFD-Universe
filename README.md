@@ -92,6 +92,7 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 | **Predict CMB temperature** | 2.7248 K from recombination physics | ✅ Verified (0.03% error) |
 | **Nuclear conservation law** | 210/210 decay modes explained | ✅ Verified (100%) |
 | **Lepton mass ratios** | m_μ/m_e ≈ 207 from topology | ⚠️ 0.93% error (improving) |
+| **Proton mass** | m_p = k_geom × β × (m_e/α) ≈ 934 MeV | ✅ Verified (0.49% error) |
 
 **What would falsify QFD**: Any prediction off by more than ~1% with no geometric explanation.
 
@@ -110,13 +111,21 @@ QFD aims to derive ALL fundamental constants from geometry. Here are the testabl
 | **A3. Electron scale factor** | S_e = -1/ξ where ξ = φ² | Golden ratio emerges from recursive self-similarity |
 | **A4. Hard-wall boundary** | Solitons have finite support | Prevents infinite self-energy |
 
-### Measured Input
+### Measured Inputs
 
-| Input | Value | Source | Independence |
-|-------|-------|--------|--------------|
-| **α** (fine structure) | 1/137.035999206 | CODATA 2018 | **⚠️ See note below** |
+| Input | Value | Source | Used For |
+|-------|-------|--------|----------|
+| **α** (fine structure) | 1/137.035999206 | CODATA 2018 | Core derivation (β, c₁, c₂, g-2) |
+| **m_e** (electron mass) | 0.511 MeV | PDG 2024 | Mass scale unit |
+| **m_μ/m_e** (mass ratio) | 206.768... | PDG 2024 | Particle identification in g-2 |
 
-**Circularity note**: CODATA α is determined primarily from (a) electron anomaly measurements or (b) atom-recoil experiments. To ensure non-circular validation:
+**Why m_e?** Electron mass sets the fundamental mass scale (like choosing meters for length). All other masses are derived relative to it:
+- **Proton mass**: m_p = k_geom × β × (m_e/α) ≈ 934 MeV (0.49% error) — see `ProtonBridge_Derivation.lean`
+- **Lepton ratios**: m_μ/m_e ≈ 207 from topology (0.93% error, improving)
+
+**Why mass ratios for g-2?** For g-2 predictions, we need to know *which* particle. The scale factor R_μ = m_e/m_μ identifies the muon's position in the vacuum geometry. We separately claim to *derive* this ratio from topology, but validation scripts currently use measured values.
+
+**Circularity note for α**: CODATA α is determined primarily from (a) electron anomaly measurements or (b) atom-recoil experiments. To ensure non-circular validation:
 - **Electron g-2 test**: Should use atom-recoil α (α⁻¹ = 137.035999046) for independence
 - **Muon g-2 test**: Independent regardless of α source (muon data not used in CODATA α)
 
