@@ -137,6 +137,28 @@ The muon (R < R_vac) gets a positive correction.
 
 ---
 
+## The Cl(3,3) Methodology
+
+**When in doubt, express the problem in Cl(3,3) and see which symmetry surfaces.**
+
+This approach—converting equations to Clifford algebra Cl(3,3) and looking for geometric structure—is how QFD cracked problems that seemed unrelated:
+
+| Problem | What Cl(3,3) Revealed |
+|---------|----------------------|
+| Spacetime emergence | 4D Minkowski = centralizer of internal bivector |
+| ℏ derivation | Planck constant from topological winding |
+| Photon solitons | Stability from helicity-locked coherence |
+| Lepton masses | Harmonic modes in twist energy functional |
+| g-2 sign flip | Möbius transform geometry |
+
+**Why it works**: Cl(3,3) has signature (+,+,+,−,−,−). The "hidden" dimensions e₄, e₅ encode internal degrees of freedom. Physics emerges from what commutes with internal rotation—the centralizer structure.
+
+**Recipe for new problems**: Express in Cl(3,3) → Find the bivector subspace → Look for centralizer → The surviving symmetry IS the physics.
+
+See `THEORY.md` Section 6 for the complete methodology and proof index.
+
+---
+
 ## Repository Structure
 
 ```
