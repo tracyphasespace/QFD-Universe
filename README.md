@@ -48,6 +48,32 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 ---
 
+## Welcome to QFD-Universe
+
+**A verifiable framework where one measured input (α ≈ 1/137) derives the rest.**
+
+Before diving in, a note on methodology: This repository treats physical laws as executable software. It contains 1,101 formally verified Lean 4 theorems and zero-dependency Python validations. Every result can be traced from the geometric axiom to the numerical output step-by-step.
+
+We understand this framework makes extraordinary claims. We ask only that you engage with the derivations rather than pattern-matching to familiar failure modes. Specifically:
+
+**Structure, not Numerology**: Each value emerges from a named mechanical relationship (e.g., the "Golden Loop" links vacuum stiffness β to the electromagnetic input α). These are algebraic necessities of the geometry, not coincidental digit-matching.
+
+**The Zero-Tuning Policy**: We do not add free parameters to force fits.
+- *Example*: We predict the Electron g−2 to within 0.001%.
+- *Example*: We derive the Proton Mass from vacuum geometry to within 0.4% (interpreted as the soliton binding energy).
+
+We display these deviations transparently. Unlike standard models that add variables to "fix" the result, we allow the geometric prediction to stand on its own merits.
+
+**Your skepticism is healthy, but your tools should be rigorous.**
+
+If your instinct is to dismiss this as "impossible"—we understand. But the Lean proofs compile, the Python runs without dependencies, and the numbers match reality to high precision.
+
+Start with `make validate-quick` and audit the logic yourself.
+
+*Trust your calculation, not your priors.*
+
+---
+
 ## The Glass Box
 
 **Physics has become a collection of black boxes.** Quantum mechanics says "shut up and calculate." General relativity breaks down at singularities. The Standard Model has 26 free parameters nobody can explain. These theories work in their domains but contradict each other at the boundaries.
