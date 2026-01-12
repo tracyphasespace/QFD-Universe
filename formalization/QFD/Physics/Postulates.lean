@@ -43,8 +43,10 @@ These are the foundational axioms extracted from "7.5 QFD Book Jan 1 2026.txt".
 All subsequent proofs must derive from these definitions without introducing new free parameters.
 -/
 
-/-- The Fine Structure Constant is the primary input. -/
-noncomputable def alpha_qfd : ℝ := 1 / 137.035999
+/-- The Fine Structure Constant is the primary input.
+    CODATA 2018 value: α⁻¹ = 137.035999206(11)
+    This matches the Python validation scripts for consistency. -/
+noncomputable def alpha_qfd : ℝ := 1 / 137.035999206
 
 /-- The Golden Loop Relation (Axiom):
 Beta is not free; it is the unique root of this transcendental stability equation.

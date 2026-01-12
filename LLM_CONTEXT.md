@@ -305,7 +305,7 @@ Formal proof that β = 3.04309 satisfies the transcendental equation.
 | Script | What it validates |
 |--------|------------------|
 | `simulation/scripts/verify_golden_loop.py` | α → β derivation |
-| `analysis/scripts/run_all_validations.py` | Conservation law (285/285) |
+| `analysis/scripts/run_all_validations.py` | Conservation law (210/210) |
 | `analysis/scripts/validate_g2_corrected.py` | g-2 prediction (0.45% error) |
 
 ---
