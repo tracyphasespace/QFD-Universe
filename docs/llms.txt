@@ -2,7 +2,7 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 374
+total_files: 375
 lean_proofs: 247
 python_scripts: 40
 documentation: 78
@@ -407,10 +407,11 @@ simulation/src/shared_constants.py
 formalization/QFD/Cosmology/CMB_AxisOfEvil_COMPLETE_v1.1.tex
 formalization/QFD/Cosmology/PAPER_TEMPLATE_WITH_FORMALIZATION.tex
 
-# OTHER (7 files)
+# OTHER (8 files)
 docs/llms.txt
 docs/robots.txt
 docs/urls.txt
+docs/urls_plain.txt
 formalization/QFD/CLAIMS_INDEX.txt
 formalization/QFD/THEOREM_STATEMENTS.txt
 project_map.txt
