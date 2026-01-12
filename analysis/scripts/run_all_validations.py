@@ -9,7 +9,12 @@ QFD Master Validation Suite - 17 Tests
 Single command to run ALL validation and derivation scripts.
 
 Usage:
-    python run_all_validations.py [--quick]
+    python run_all_validations.py [--quick] [--require-data]
+
+Options:
+    --quick         Run with reduced samples (faster)
+    --require-data  Fail immediately if NuBase data is missing
+                    (Default: warn but continue with available tests)
 
 Tests:
     Part 1: Fundamental Derivations (5 tests)
@@ -23,6 +28,7 @@ Output:
 """
 
 import sys
+import argparse
 import subprocess
 from pathlib import Path
 from datetime import datetime
@@ -92,8 +98,17 @@ def run_validation(script_name, description, args=None, cwd=None):
         return False
 
 
-def check_data_availability():
-    """Check if required data files are available."""
+def check_data_availability(require_data=False):
+    """Check if required data files are available.
+
+    Args:
+        require_data: If True, fail fast when data is missing.
+                     If False, warn but continue (default behavior).
+
+    Returns:
+        True if data is available or if we should proceed anyway.
+        False if data is required but missing.
+    """
     data_path = Path(__file__).parent / '../data/derived/harmonic_scores.parquet'
 
     if data_path.exists():
@@ -104,28 +119,60 @@ def check_data_availability():
             return True
         except Exception as e:
             print(f"✗ Error loading data: {e}")
+            if require_data:
+                print("ERROR: --require-data flag set but data cannot be loaded.")
+                return False
             return False
     else:
-        # Don't fail hard if just simulation scripts are needed, but warn
-        print(f"⚠️  Data file not found: {data_path}")
-        return True # Proceed, some scripts might fail but others (simulation) will work
+        if require_data:
+            print(f"✗ Data file not found: {data_path}")
+            print("ERROR: --require-data flag set. Cannot proceed without data.")
+            print("\nTo obtain NuBase 2020 data, see docs/REPLICATION.md")
+            return False
+        else:
+            # Don't fail hard if just simulation scripts are needed, but warn
+            print(f"⚠️  Data file not found: {data_path}")
+            print("    Some tests may fail. Use --require-data to enforce data availability.")
+            return True  # Proceed, some scripts might fail but others (simulation) will work
 
 
 def main():
     """Run all validations."""
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(
+        description='QFD Master Validation Suite - 17 Tests',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+    python run_all_validations.py                 # Run all, warn if data missing
+    python run_all_validations.py --quick         # Fast mode with reduced samples
+    python run_all_validations.py --require-data  # Fail if NuBase data missing
+        """
+    )
+    parser.add_argument('--quick', action='store_true',
+                        help='Run with reduced samples (faster)')
+    parser.add_argument('--require-data', action='store_true',
+                        help='Fail immediately if NuBase data is missing')
+    args = parser.parse_args()
+
     start_time = datetime.now()
 
     print_header("QFD MODEL VALIDATION AND DERIVATION SUITE")
     print(f"Timestamp: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Check for quick mode
-    quick_mode = '--quick' in sys.argv
-    if quick_mode:
+    if args.quick:
         print("\n⚡ QUICK MODE: Running with reduced samples")
+
+    if args.require_data:
+        print("\n🔒 STRICT MODE: Data availability required")
 
     # Check data availability
     print_section("1. Checking Data Availability")
-    check_data_availability()
+    data_ok = check_data_availability(require_data=args.require_data)
+
+    if not data_ok:
+        print("\n❌ Validation aborted: Required data not available.")
+        return 1
 
     # Track results
     results = {}

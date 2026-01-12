@@ -76,8 +76,14 @@ Most validations are data-independent. For conservation law validation:
 # Check if data exists
 ls analysis/data/nubase_2020.parquet
 
-# If missing, validation will warn but continue with cached results
+# Default: warn if missing, continue with available tests
+python analysis/scripts/run_all_validations.py
+
+# Strict mode: fail fast if data is missing
+python analysis/scripts/run_all_validations.py --require-data
 ```
+
+Use `--require-data` when you need to ensure all nuclear physics tests run.
 
 ---
 
@@ -97,7 +103,8 @@ lake build
 ```
 
 **Conservation law shows "data not found"**
-- The script will still report cached results
+- By default, the script warns but continues with available tests
+- Use `--require-data` flag to fail fast if data is missing
 - For full replication, obtain NuBase 2020 data
 
 ---
