@@ -2,8 +2,8 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 375
-lean_proofs: 247
+total_files: 377
+lean_proofs: 249
 python_scripts: 40
 documentation: 78
 proven_theorems: 886
@@ -112,7 +112,7 @@ formalization/QFD/UNIFIEDFORCES_STATUS.md
 formalization/QFD/Vacuum/VACUUM_HYDRODYNAMICS_INTEGRATION.md
 visualizations/README.md
 
-# LEAN PROOFS (247 files)
+# LEAN PROOFS (249 files)
 formalization/QFD.lean
 formalization/QFD/AdjointStability_Complete.lean
 formalization/QFD/AngularSelection.lean
@@ -201,6 +201,7 @@ formalization/QFD/Gravity/SchwarzschildLink.lean
 formalization/QFD/Gravity/Shell_Theorem_Harmonic.lean
 formalization/QFD/Gravity/SnellLensing.lean
 formalization/QFD/Gravity/TimeRefraction.lean
+formalization/QFD/Hydrogen/HbarDerivation.lean
 formalization/QFD/Hydrogen/PhotonResonance.lean
 formalization/QFD/Hydrogen/PhotonScattering.lean
 formalization/QFD/Hydrogen/PhotonSoliton.lean
@@ -338,6 +339,7 @@ formalization/QFD/Soliton/TopologicalStability_Refactored.lean
 formalization/QFD/SpacetimeEmergence_Complete.lean
 formalization/QFD/SpectralGap.lean
 formalization/QFD/StabilityCriterion.lean
+formalization/QFD/Test/TrivialProof.lean
 formalization/QFD/Thermodynamics/BoltzmannEntropy.lean
 formalization/QFD/Topology/FormFactorCore.lean
 formalization/QFD/Topology/IntegerBridge.lean

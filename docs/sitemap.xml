@@ -958,6 +958,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Hydrogen/HbarDerivation.lean</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Hydrogen/PhotonResonance.lean</loc>
     <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -1994,6 +2000,12 @@
     <lastmod>2026-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Test/TrivialProof.lean</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/formalization/QFD/Thermodynamics/BoltzmannEntropy.lean</loc>
