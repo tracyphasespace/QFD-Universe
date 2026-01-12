@@ -2,9 +2,9 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 376
+total_files: 377
 lean_proofs: 241
-python_scripts: 40
+python_scripts: 41
 documentation: 85
 proven_theorems: 886
 proven_lemmas: 215
@@ -362,7 +362,7 @@ formalization/QFD/Weak/ChiralAnomaly.lean
 formalization/QFD/Weak/DoubleBetaDecay.lean
 formalization/QFD/Weak/PionGeometry.lean
 
-# PYTHON CODE (40 files)
+# PYTHON CODE (41 files)
 analysis/nuclear/scripts/analyze_all_decay_transitions.py
 analysis/nuclear/scripts/integer_ladder_test.py
 analysis/nuclear/scripts/nucleus_classifier.py
@@ -403,6 +403,7 @@ simulation/scripts/verify_golden_loop.py
 simulation/scripts/verify_lepton_g2.py
 simulation/scripts/verify_photon_soliton.py
 simulation/src/shared_constants.py
+visualizations/nucleus_3d_interactive.py
 
 # LATEX MANUSCRIPTS (2 files)
 formalization/QFD/Cosmology/CMB_AxisOfEvil_COMPLETE_v1.1.tex

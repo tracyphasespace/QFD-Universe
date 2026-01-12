@@ -2271,4 +2271,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/visualizations/nucleus_3d_interactive.py</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
