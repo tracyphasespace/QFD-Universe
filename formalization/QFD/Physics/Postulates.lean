@@ -50,9 +50,16 @@ noncomputable def alpha_qfd : ℝ := 1 / 137.035999206
 
 /-- The Golden Loop Relation (Axiom):
 Beta is not free; it is the unique root of this transcendental stability equation.
+
+**Canonical Form**: 1/α = 2π² × (e^β / β) + 1
+
+**Equivalent Forms**:
+- e^β / β = (1/α - 1) / (2π²)  ≈ 6.8917
+- e^β / β = K where K = (α⁻¹ × c₁) / π²  (used in GoldenLoop.lean)
+
 Derivation: Chapter 12.1.3 "The Golden Loop" -/
 noncomputable def beta_stability_equation (b : ℝ) : Prop :=
-  (Real.pi^2) * (Real.exp b) * (b / (0.5 * (1 - alpha_qfd))) = (1 / alpha_qfd)
+  2 * (Real.pi^2) * (Real.exp b / b) + 1 = (1 / alpha_qfd)
 
 /-- We postulate that Beta exists and satisfies the equation.
 (Numerical solution: approx 3.043233053) -/

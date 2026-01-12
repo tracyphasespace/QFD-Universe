@@ -114,8 +114,10 @@ def generate_files_json(files: list, output_path: str):
         cat = f["category"]
         index["categories"][cat] = index["categories"].get(cat, 0) + 1
 
-    with open(output_path, "w") as f:
+    # Write with explicit Unix newlines and trailing newline
+    with open(output_path, "w", newline='\n') as f:
         json.dump(index, f, indent=2)
+        f.write('\n')  # Ensure trailing newline
 
 def generate_llms_txt(files: list, output_path: str):
     """Generate llms.txt for AI-specific metadata.
@@ -178,8 +180,10 @@ analysis/scripts/run_all_validations.py
             for path in by_cat[cat]:
                 content += f"{path}\n"
 
-    with open(output_path, "w") as f:
+    # Write with explicit Unix newlines
+    with open(output_path, "w", newline='\n') as f:
         f.write(content)
+
 
 def generate_index_html(files: list, output_path: str):
     """Generate human-readable HTML index."""
@@ -369,6 +373,43 @@ def generate_index_html(files: list, output_path: str):
     with open(output_path, "w") as f:
         f.write(html)
 
+def generate_urls_plain(files: list, output_path: str):
+    """Generate urls_plain.txt - pure URLs only, one per line.
+
+    This is the most parser-friendly format:
+    - No headers, no comments
+    - One complete URL per line
+    - Unix newlines (LF only)
+    """
+    # Key files first, then all others
+    key_files = [
+        "README.md",
+        "THEORY.md",
+        "LLM_CONTEXT.md",
+        "qfd_proof.py",
+        "analysis/scripts/run_all_validations.py",
+        "formalization/QFD/GoldenLoop.lean",
+        "formalization/QFD/Physics/Postulates.lean",
+        "formalization/QFD/Lepton/GeometricG2.lean",
+        "formalization/QFD/Lepton/RVacDerivation.lean",
+        "formalization/QFD/Conservation/Noether.lean",
+        "formalization/QFD/Nuclear/ProtonBridge_Geometry.lean",
+    ]
+
+    lines = []
+    for path in key_files:
+        lines.append(f"{RAW_URL}/{path}")
+
+    # Add navigation pages
+    lines.append(f"{PAGES_URL}/simple.html")
+    lines.append(f"{PAGES_URL}/lean_proofs.html")
+
+    # Write with explicit Unix newlines
+    with open(output_path, "w", newline='\n') as f:
+        for line in lines:
+            f.write(line + '\n')
+
+
 def generate_robots_txt(output_path: str):
     """Generate robots.txt allowing full crawling."""
     content = f"""# QFD-Universe robots.txt
@@ -435,6 +476,9 @@ def main():
 
     print("Generating robots.txt...")
     generate_robots_txt(docs_dir / "robots.txt")
+
+    print("Generating urls_plain.txt...")
+    generate_urls_plain(files, docs_dir / "urls_plain.txt")
 
     print("Updating file counts in documentation...")
     update_file_counts(repo_root, len(files))

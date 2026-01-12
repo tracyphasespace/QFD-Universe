@@ -113,11 +113,29 @@ QFD development uses two separate repositories:
 
 ### What is QFD?
 
-QFD derives fundamental constants from geometry rather than fitting them to data. Starting from α = 1/137.036, all nuclear and electromagnetic coefficients emerge through the **Golden Loop** equation:
+QFD derives fundamental constants from geometry rather than fitting them to data. Starting from α = 1/137.036, all nuclear and electromagnetic coefficients emerge through the **Golden Loop** equation.
 
+### Canonical Golden Loop Equation
+
+**The fundamental form** (used in all validations):
 ```
-1/α = 2π² × (e^β / β) + 1  →  β = 3.04309
+1/α = 2π² × (e^β / β) + 1
 ```
+
+Solving for β ≈ 3.043233053 (the vacuum bulk modulus).
+
+**Equivalent algebraic forms** (used in Lean proofs):
+```
+e^β / β = (1/α - 1) / (2π²)  ≈ 6.8917
+e^β / β = K  where K = (α⁻¹ × c₁) / π²  (GoldenLoop.lean)
+```
+
+**Where these appear:**
+- `Postulates.lean`: Canonical form `2π² × (e^β/β) + 1 = 1/α`
+- `GoldenLoop.lean`: Solved form `e^β/β = K`
+- `qfd_proof.py`: Python solver for β
+
+All forms are mathematically equivalent. The derivation is in THEORY.md.
 
 ### Key Derived Constants (Zero Free Parameters)
 
