@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qfd-universe"
+version = "1.0.0"
+description = "Quantum Field Dynamics - Geometric framework for fundamental physics"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Tracy McConnell"}
+]
+keywords = ["physics", "quantum", "geometric-algebra", "solitons", "nuclear"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+dependencies = [
+    "numpy>=1.20.0,<2.0",
+    "scipy>=1.7.0,<2.0",
+    "pandas>=1.3.0,<3.0",
+    "matplotlib>=3.4.0,<4.0",
+    "plotly>=5.0.0,<6.0",
+    "pyarrow>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+]
+docs = [
+    "sphinx>=6.0",
+    "sphinx-rtd-theme>=1.0",
+]
+all = ["qfd-universe[dev,docs]"]
+
+[project.urls]
+Homepage = "https://github.com/tracyphasespace/QFD-Universe"
+Documentation = "https://tracyphasespace.github.io/QFD-Universe/"
+Repository = "https://github.com/tracyphasespace/QFD-Universe"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["qfd*", "analysis.src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # Line length handled by black
