@@ -36,34 +36,27 @@ We prove that even as $A \to 0$, the Chirality of $R$ is invariant
 
 namespace QFD.Neutrino_Chirality
 
-open scoped Classical
 open QFD.GA
 open QFD.QM_Translation.PauliBridge
 open CliffordAlgebra
 
 variable {Ψ : Type*} [AddCommGroup Ψ] [Module ℝ Ψ]
 
-/-- 
-A "Vortex" is a State with a separate Amplitude (scalar) and Rotor (geometry).
-Using a simplified model to demonstrate the topological locking.
--/ 
-structure Vortex :=
-  (amplitude : ℝ)
-  (rotor : Cl33)
+/-- A "Vortex" is a State with a separate Amplitude (scalar) and Rotor (geometry).
+Using a simplified model to demonstrate the topological locking. -/
+structure Vortex where
+  amplitude : ℝ
+  rotor : Cl33
 
-/--
-**Definition: Chirality Operator**
-In Spacetime Algebra, Chirality is determined by the sign relative to 
+/-- **Definition: Chirality Operator**
+In Spacetime Algebra, Chirality is determined by the sign relative to
 the pseudoscalar $I$ (or $\gamma_5$ in Dirac).
 Here we use the `I_spatial` we defined in PauliBridge.
-Left vs Right = Eigenvalues ±1.
--/ 
+Left vs Right = Eigenvalues ±1. -/
 def chirality_op (v : Vortex) : Cl33 :=
   I_spatial * v.rotor
 
-/-- 
-We define discrete chirality states.
--/ 
+/-- We define discrete chirality states. -/
 inductive ChiralityState
 | Left
 | Right
@@ -89,7 +82,7 @@ Standard vectors fade away to 0 vector.
 Topology is robust.
 -/ 
 theorem chirality_invariant_under_bleaching
-  (v : Vortex) (k : ℝ) (h_k : k ≠ 0) :
+  (v : Vortex) (k : ℝ) (_h_k : k ≠ 0) :
   let bleached_vortex := Vortex.mk (v.amplitude * k) v.rotor
   get_chirality bleached_vortex = get_chirality v := by
   intro bleached_vortex
@@ -105,9 +98,7 @@ You cannot continuously deform a Left-Handed state into a Right-Handed state
 without passing through a "Singularity" (where Rotor vanishes or geometry breaks).
 
 This protects the neutrino species. A decay event produces a specific
-geometric knot. It cannot simply "untie" or "flip" without interaction.
--/ 
-
+geometric knot. It cannot simply "untie" or "flip" without interaction. -/
 theorem chirality_gap (L R : Vortex) :
   (get_chirality L = .Left) →
   (get_chirality R = .Right) →

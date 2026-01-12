@@ -131,8 +131,8 @@ theorem generator_squares_to_signature (i : Fin 6) :
   classical
   have hi : i ∈ (Finset.univ : Finset (Fin 6)) := by simp
   -- Use Finset.sum_eq_single_of_mem to isolate the i term
-  simpa [Pi.single_apply] using
-    Finset.sum_eq_single_of_mem hi (fun j _ hji => by simp [Pi.single_apply, hji])
+  simp only [Pi.single_apply]
+  exact Finset.sum_eq_single_of_mem hi (fun j _ hji => by simp [hji])
 
 -- ## 4. Anticommutation Relations
 
