@@ -2,10 +2,10 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 369
+total_files: 376
 lean_proofs: 241
 python_scripts: 40
-documentation: 78
+documentation: 85
 proven_theorems: 886
 proven_lemmas: 215
 sorries: 0
@@ -32,7 +32,7 @@ analysis/scripts/run_all_validations.py
 # /qfd/ - Core Python library
 
 
-# CORE DOCUMENTATION (78 files)
+# CORE DOCUMENTATION (85 files)
 ALL_LEAN_PROOFS.md
 ALL_SCRIPTS.md
 CL33_METHODOLOGY.md
@@ -49,7 +49,14 @@ formalization/QFD/Atomic/ATOMIC_SPECTROSCOPY_COMPLETE.md
 formalization/QFD/Atomic/RESONANCE_DYNAMICS_INTEGRATION.md
 formalization/QFD/BUILD_STATUS_2026_01_04.md
 formalization/QFD/BUILD_STATUS_2026_01_04_CONTINUED.md
-formalization/QFD/CLAUDE.md
+formalization/QFD/BookContent/appendix_n_formalization_gap_analysis.md
+formalization/QFD/BookContent/appendix_n_formalization_roadmap.md
+formalization/QFD/BookContent/appendix_n_revised_review.md
+formalization/QFD/BookContent/neutrino_formalization_review.md
+formalization/QFD/BookContent/qfd_book_formalization_package.md
+formalization/QFD/BookContent/qfd_formalization_book_summary.md
+formalization/QFD/BookContent/qfd_formalization_brief_note.md
+formalization/QFD/BookContent/qfd_formalization_table.md
 formalization/QFD/COMPLETE_GUIDE.md
 formalization/QFD/COMPLETE_STATUS_2026_01_04.md
 formalization/QFD/CONCERN_CATEGORIES.md
