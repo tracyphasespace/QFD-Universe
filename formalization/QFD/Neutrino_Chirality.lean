@@ -67,11 +67,12 @@ Extract the Chirality State from the rotor geometry.
 Logic: If R commutes/anticommutes with I to give sign.
 Simplified for proof: we assume the rotor is in an eigenstate.
 -/
-noncomputable def get_chirality (v : Vortex) : ChiralityState :=
-  if v.rotor = 0 then .None
-  else if I_spatial * v.rotor = v.rotor * I_spatial then .Right
-  else if I_spatial * v.rotor = - (v.rotor * I_spatial) then .Left
-  else .None
+noncomputable def get_chirality (v : Vortex) : ChiralityState := by
+  classical
+  exact if v.rotor = 0 then .None
+    else if I_spatial * v.rotor = v.rotor * I_spatial then .Right
+    else if I_spatial * v.rotor = - (v.rotor * I_spatial) then .Left
+    else .None
 
 /--
 **Theorem: The Chirality Lock**
@@ -108,9 +109,9 @@ theorem chirality_gap (L R : Vortex) :
   by_contra h_eq
   -- Then get_chirality L = get_chirality R
   have : get_chirality L = get_chirality R := by
+    -- Since L.rotor = R.rotor, both evaluate the same
     unfold get_chirality
-    -- Since L.rotor = R.rotor, all conditions evaluate the same
-    simp [h_eq]
+    rw [h_eq]
   -- But we have .Left = get_chirality L = get_chirality R = .Right
   -- which is a contradiction
   rw [hL, hR] at this
