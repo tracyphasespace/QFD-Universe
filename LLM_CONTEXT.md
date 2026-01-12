@@ -1,13 +1,25 @@
 # LLM Context: Understanding QFD
 
-## FILE INDEX - FETCH THIS FIRST
+## START HERE - FETCH THIS FIRST
 
 ```
-https://tracyphasespace.github.io/QFD-Universe/llms.txt
+https://tracyphasespace.github.io/QFD-Universe/simple.html
 ```
 
-This contains all 369 files. To read any file, prepend:
+This is a no-JavaScript landing page with direct links to all key files.
 
+For complete Lean proof index (247 files):
+```
+https://tracyphasespace.github.io/QFD-Universe/lean_proofs.html
+```
+
+Machine-readable indexes (one item per line):
+```
+https://tracyphasespace.github.io/QFD-Universe/urls_plain.txt
+https://tracyphasespace.github.io/QFD-Universe/files_pretty.json
+```
+
+Raw file base URL (prepend to any path):
 ```
 https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/
 ```
