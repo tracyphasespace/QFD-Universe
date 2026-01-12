@@ -23,10 +23,10 @@ GitHub's JavaScript UI doesn't work for all tools. Use these direct URLs:
 
 | File | Direct Raw URL |
 |------|----------------|
-| **ALL LEAN PROOFS (246)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_LEAN_PROOFS.md |
+| **ALL LEAN PROOFS (241)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_LEAN_PROOFS.md |
 | **ALL SCRIPTS** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/ALL_SCRIPTS.md |
 | **Complete Index** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/raw_index.md |
-| **File Index (370 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
+| **File Index (369 files)** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/docs/llms.txt |
 | **This README** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/README.md |
 | **Theory Doc** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/THEORY.md |
 | **Methodology** | https://raw.githubusercontent.com/tracyphasespace/QFD-Universe/main/CL33_METHODOLOGY.md |

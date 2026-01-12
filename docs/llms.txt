@@ -2,8 +2,8 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 377
-lean_proofs: 249
+total_files: 369
+lean_proofs: 241
 python_scripts: 40
 documentation: 78
 proven_theorems: 886
@@ -112,7 +112,7 @@ formalization/QFD/UNIFIEDFORCES_STATUS.md
 formalization/QFD/Vacuum/VACUUM_HYDRODYNAMICS_INTEGRATION.md
 visualizations/README.md
 
-# LEAN PROOFS (249 files)
+# LEAN PROOFS (241 files)
 formalization/QFD.lean
 formalization/QFD/AdjointStability_Complete.lean
 formalization/QFD/AngularSelection.lean
@@ -132,7 +132,6 @@ formalization/QFD/Charge/Potential.lean
 formalization/QFD/Charge/Quantization.lean
 formalization/QFD/Charge/ShellTheorem.lean
 formalization/QFD/Charge/Vacuum.lean
-formalization/QFD/Cl33ImportTest.lean
 formalization/QFD/Classical/Conservation.lean
 formalization/QFD/Conservation/NeutrinoID.lean
 formalization/QFD/Conservation/NeutrinoID_Automated.lean
@@ -143,9 +142,7 @@ formalization/QFD/Conservation/NeutrinoMixing.lean
 formalization/QFD/Conservation/Noether.lean
 formalization/QFD/Conservation/Unitarity.lean
 formalization/QFD/Cosmology/AxisExtraction.lean
-formalization/QFD/Cosmology/AxisExtraction_original_backup.lean
 formalization/QFD/Cosmology/CoaxialAlignment.lean
-formalization/QFD/Cosmology/CoaxialAlignment_original_backup.lean
 formalization/QFD/Cosmology/GalacticScaling.lean
 formalization/QFD/Cosmology/HubbleDrift.lean
 formalization/QFD/Cosmology/KernelAxis.lean
@@ -186,7 +183,6 @@ formalization/QFD/GA/GradeProjection.lean
 formalization/QFD/GA/HodgeDual.lean
 formalization/QFD/GA/MultivectorGrade.lean
 formalization/QFD/GA/PhaseCentralizer.lean
-formalization/QFD/GA/PhaseCentralizer_original_backup.lean
 formalization/QFD/GA/Tactics.lean
 formalization/QFD/GoldenLoop.lean
 formalization/QFD/Gravity/G_Derivation.lean
@@ -307,12 +303,8 @@ formalization/QFD/QM_Translation/DiracRealization.lean
 formalization/QFD/QM_Translation/Heisenberg.lean
 formalization/QFD/QM_Translation/MeasurementCollapse.lean
 formalization/QFD/QM_Translation/PauliBridge.lean
-formalization/QFD/QM_Translation/PauliBridge_Test.lean
-formalization/QFD/QM_Translation/PauliBridge_Test2.lean
-formalization/QFD/QM_Translation/PauliBridge_Test3.lean
 formalization/QFD/QM_Translation/PauliExclusion.lean
 formalization/QFD/QM_Translation/RealDiracEquation.lean
-formalization/QFD/QM_Translation/RealDiracEquation_original_backup.lean
 formalization/QFD/QM_Translation/SchrodingerEvolution.lean
 formalization/QFD/Relativity/LorentzRotors.lean
 formalization/QFD/Relativity/SagnacEffect.lean

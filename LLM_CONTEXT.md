@@ -8,7 +8,7 @@ https://tracyphasespace.github.io/QFD-Universe/simple.html
 
 This is a no-JavaScript landing page with direct links to all key files.
 
-For complete Lean proof index (247 files):
+For complete Lean proof index (241 files):
 ```
 https://tracyphasespace.github.io/QFD-Universe/lean_proofs.html
 ```
