@@ -1,8 +1,9 @@
 # Proof Index - Meat & Potatoes
 
-**Version**: 2.0
+**Version**: 2.1
 **Last Updated**: 2026-01-11
 **Total Proven**: 1,133 (914 theorems + 219 lemmas)
+**Lean Files**: 240 (synced: internal = public)
 **Sorries**: 0
 **Axioms**: 11 (centralized in Physics/Postulates.lean)
 
