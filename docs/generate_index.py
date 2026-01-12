@@ -202,7 +202,7 @@ def generate_index_html(files: list, output_path: str):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QFD-Universe - AI-Browsable Index</title>
-    <meta name="description" content="Quantum Field Dynamics formal proofs and validation. {len(files)} files, 1,101 proven statements.">
+    <meta name="description" content="Quantum Field Dynamics formal proofs and validation. {len(files)} files, 1,100+ proven statements.">
     <style>
         :root {{
             --bg: #0d1117;
@@ -313,7 +313,7 @@ def generate_index_html(files: list, output_path: str):
             <div>Lean Proofs</div>
         </div>
         <div class="stat">
-            <div class="stat-value">1,101</div>
+            <div class="stat-value">1,100+</div>
             <div>Proven Statements</div>
         </div>
         <div class="stat">

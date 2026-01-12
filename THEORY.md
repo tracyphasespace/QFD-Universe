@@ -397,12 +397,10 @@ For a photon soliton with helicity H = ∫A·B dV:
 
 | Metric | Count |
 |--------|-------|
-| Lean files | 238 |
-| Theorems | 886 |
-| Lemmas | 215 |
-| **Total proven** | **1,101** |
+| Lean files | 240+ |
+| Theorems + Lemmas | **1,100+** |
 | Explicit axioms | 11 |
-| Sorries | **0** ✨ |
+| Sorries | **0** |
 | **Completion rate** | **100%** |
 
 ### The Cl(3,3) Methodology
