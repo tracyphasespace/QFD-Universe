@@ -428,28 +428,52 @@ Sitemap: {PAGES_URL}/sitemap.xml
     with open(output_path, "w") as f:
         f.write(content)
 
-def update_file_counts(repo_root: Path, file_count: int):
-    """Update file counts in README.md and LLM_CONTEXT.md for consistency."""
+def update_file_counts(repo_root: Path, total_files: int, lean_proofs: int):
+    """Update file counts in all entry points for consistency.
+
+    Updates: README.md, LLM_CONTEXT.md, simple.html, lean_proofs.html
+    """
     import re
 
-    # Update README.md - find patterns like "for all 362 files" or "(362 files)"
+    docs_dir = repo_root / "docs"
+
+    # Update README.md
     readme_path = repo_root / "README.md"
     if readme_path.exists():
         content = readme_path.read_text()
-        # Replace patterns like "all 362 files" or "(362 files)" with actual count
-        content = re.sub(r'all \d+ files', f'all {file_count} files', content)
-        content = re.sub(r'\(\d+ files\)', f'({file_count} files)', content)
+        content = re.sub(r'all \d+ files', f'all {total_files} files', content)
+        content = re.sub(r'\(\d+ files\)', f'({total_files} files)', content)
+        content = re.sub(r'ALL LEAN PROOFS \(\d+\)', f'ALL LEAN PROOFS ({lean_proofs})', content)
         readme_path.write_text(content)
-        print(f"Updated README.md with file count: {file_count}")
+        print(f"Updated README.md: {total_files} files, {lean_proofs} proofs")
 
     # Update LLM_CONTEXT.md
     llm_context_path = repo_root / "LLM_CONTEXT.md"
     if llm_context_path.exists():
         content = llm_context_path.read_text()
-        content = re.sub(r'all \d+ files', f'all {file_count} files', content)
-        content = re.sub(r'contains all \d+ files', f'contains all {file_count} files', content)
+        content = re.sub(r'all \d+ files', f'all {total_files} files', content)
+        content = re.sub(r'contains all \d+ files', f'contains all {total_files} files', content)
+        content = re.sub(r'proof index \(\d+ files\)', f'proof index ({lean_proofs} files)', content)
         llm_context_path.write_text(content)
-        print(f"Updated LLM_CONTEXT.md with file count: {file_count}")
+        print(f"Updated LLM_CONTEXT.md: {total_files} files, {lean_proofs} proofs")
+
+    # Update simple.html
+    simple_path = docs_dir / "simple.html"
+    if simple_path.exists():
+        content = simple_path.read_text()
+        content = re.sub(r'all \d+ proofs', f'all {lean_proofs} proofs', content)
+        content = re.sub(r'\(\d+ files\)', f'({total_files} files)', content)
+        simple_path.write_text(content)
+        print(f"Updated simple.html: {total_files} files, {lean_proofs} proofs")
+
+    # Update lean_proofs.html
+    lean_proofs_path = docs_dir / "lean_proofs.html"
+    if lean_proofs_path.exists():
+        content = lean_proofs_path.read_text()
+        content = re.sub(r'All \d+ formal proofs', f'All {lean_proofs} formal proofs', content)
+        content = re.sub(r'all \d+ proofs', f'all {lean_proofs} proofs', content)
+        lean_proofs_path.write_text(content)
+        print(f"Updated lean_proofs.html: {lean_proofs} proofs")
 
 
 def main():
@@ -480,8 +504,11 @@ def main():
     print("Generating urls_plain.txt...")
     generate_urls_plain(files, docs_dir / "urls_plain.txt")
 
+    # Count Lean proofs separately
+    lean_proofs = [f for f in files if f["category"] == "Lean Proofs"]
+
     print("Updating file counts in documentation...")
-    update_file_counts(repo_root, len(files))
+    update_file_counts(repo_root, len(files), len(lean_proofs))
 
     print("Done! GitHub Pages files generated in docs/")
 
