@@ -11,99 +11,112 @@
 
 ## ⚡ **Field Theory Visualizations**
 
-https://tracyphasespace.github.io/QFD-Universe/ 
+https://tracyphasespace.github.io/Quantum-Field-Dynamics/ 
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/qfd-primer.html" target="_blank">`qfd-primer.html`</a> - **Start Here**
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/qfd-primer.html" target="_blank">`qfd-primer.html`</a> - **Start Here**
 **Basic QFD Concepts**
 - Visual introduction to ψ-field dynamics
 - Interactive field equations
 - Foundation for understanding all QFD physics
 - **Suitable for**: First-time QFD exploration
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/qfd-advanced.html" target="_blank">`qfd-advanced.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/qfd-advanced.html" target="_blank">`qfd-advanced.html`</a>
 **Advanced Field Dynamics**
 - Complex field interactions
 - Multi-component wavefield visualization
 - **Suitable for**: Graduate students, researchers
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/qfd-infographic.html" target="_blank">`qfd-infographic.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/qfd-infographic.html" target="_blank">`qfd-infographic.html`</a>
 **Visual Theory Summary**
 - Complete QFD theory overview
 - Key claims and predictions
 - **Suitable for**: Quick reference, presentations
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/stability-vortex-sphere.html" target="_blank">`stability-vortex-sphere.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/stability-vortex-sphere.html" target="_blank">`stability-vortex-sphere.html`</a>
 **Stability Analysis Visualization**
 - Vortex sphere stability dynamics
 - Field stability analysis
 - **Suitable for**: Advanced field theory research
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/vortex-dynamics.html" target="_blank">`vortex-dynamics.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/vortex-dynamics.html" target="_blank">`vortex-dynamics.html`</a>
 **Vortex Sphere and Ring Dynamics**
 - Interactive vortex field structures
 - Topological field configurations
 - **Suitable for**: Mathematical physics, topology studies
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/Neutrino.HTML" target="_blank">`Neutrino.HTML`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/Neutrino.html" target="_blank">`Neutrino.html`</a>
 **Neutrino Dynamics**
 - Visualization of neutrino field dynamics.
 - **Suitable for**: Particle physics, field theory research
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/field-theory/PoyntingVector4.HTML" target="_blank">`PoyntingVector4.HTML`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/PoyntingVector4.html" target="_blank">`PoyntingVector4.html`</a>
 **Poynting Vector Visualization**
 - Visualization of the Poynting vector in 4D.
 - **Suitable for**: Electrodynamics, field theory research
+
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/field-theory/SolitonCanonPhoton.html" target="_blank">`SolitonCanonPhoton.html`</a>
+**Photon Soliton Canon - Vortex Dynamics**
+- Driven nonlinear oscillator with absorption & emission cycles
+- Interactive 3D visualization of electron vortex, proton, and photon soliton
+- Ground state, excited state, and photon ejection modes
+- **Suitable for**: Field theory research, quantum dynamics education
 
 ---
 
 ## 🔬 **Particle Physics Visualizations**
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/particle-physics/nuclide-table.html" target="_blank">`nuclide-table.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/particle-physics/nuclide-table.html" target="_blank">`nuclide-table.html`</a>
 **Interactive QFD Periodic Table**
 - Nuclear mass predictions via QFD
 - Clickable elements with field theory explanations
 - **Suitable for**: Nuclear physicists, chemistry educators
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/particle-physics/leptons-analysis.html" target="_blank">`leptons-analysis.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/particle-physics/leptons-analysis.html" target="_blank">`leptons-analysis.html`</a>
 **Comprehensive Lepton Analysis**
 - Extended lepton physics visualization
 - Detailed particle interaction models
 - **Suitable for**: Particle physics research
 
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/particle-physics/QFD_Composite_Solitons.html" target="_blank">`QFD_Composite_Solitons.html`</a>
+**QFD Composite Solitons**
+- Interactive visualization of composite soliton structures
+- Multi-particle topological configurations
+- **Suitable for**: Particle physics, soliton theory research
+
 ---
 
 ## 🌌 **Astrophysics Visualizations**
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/blackhole-dynamics.html" target="_blank">`blackhole-dynamics.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/blackhole-dynamics.html" target="_blank">`blackhole-dynamics.html`</a>
 **QFD Black Hole Field Structure**
 - Field-based black hole model (no spacetime curvature)
 - Interactive ψ-field visualization around massive objects
 - **Suitable for**: Astrophysicists, cosmologists
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/BlackHole_3D_Star_Generator.html" target="_blank">`BlackHole_3D_Star_Generator.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/BlackHole_3D_Star_Generator.html" target="_blank">`BlackHole_3D_Star_Generator.html`</a>
 **3D Black Hole Star Generator**
 - Interactive 3D visualization of star generation around a black hole.
 - **Suitable for**: Astrophysicists, cosmologists
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/blackhole-spray-condensation.html" target="_blank">`blackhole-spray-condensation.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/blackhole-spray-condensation.html" target="_blank">`blackhole-spray-condensation.html`</a>
 **Black Hole Spray Condensation Model**
 - Advanced black hole dynamics visualization
 - QFD field condensation mechanisms
 - **Suitable for**: Advanced astrophysics research
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/blackhole-viewer.html" target="_blank">`blackhole-viewer.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/blackhole-viewer.html" target="_blank">`blackhole-viewer.html`</a>
 **Interactive Black Hole Viewer**
 - Enhanced black hole field visualization
 - Multi-perspective analysis tools
 - **Suitable for**: Research and educational use
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/redshift-analysis.html" target="_blank">`redshift-analysis.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/redshift-analysis.html" target="_blank">`redshift-analysis.html`</a>
 **QFD Redshift Analysis**
 - Alternative redshift mechanism without cosmic expansion
 - ψ-mediated photon scattering visualization
 - **Based on**: [`projects/astrophysics/redshift-analysis/`](../projects/astrophysics/redshift-analysis/)
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/astrophysics/SuperNova.HTML" target="_blank">`SuperNova.HTML`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/astrophysics/SuperNova.html" target="_blank">`SuperNova.html`</a>
 **Supernova Dynamics**
 - Visualization of supernova explosion dynamics.
 - **Suitable for**: Astrophysicists, computational physicists
@@ -112,19 +125,19 @@ https://tracyphasespace.github.io/QFD-Universe/
 
 ## ⚛️ **Nuclear Physics Visualizations**
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/nuclear-physics/nuclear-scaling-mixture-v2.html" target="_blank">`nuclear-scaling-mixture-v2.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/nuclear-physics/nuclear-scaling-mixture-v2.html" target="_blank">`nuclear-scaling-mixture-v2.html`</a>
 **Nuclear Scaling Mixture Model (Version 2)**
 - Advanced nuclear scaling law visualization
 - Interactive mixture model analysis
 - **Suitable for**: Nuclear physics research
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/nuclear-physics/nuclear-scaling-mixture-v3.html" target="_blank">`nuclear-scaling-mixture-v3.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/nuclear-physics/nuclear-scaling-mixture-v3.html" target="_blank">`nuclear-scaling-mixture-v3.html`</a>
 **Nuclear Scaling Mixture Model (Version 3)**
 - Enhanced nuclear scaling analysis
 - Updated computational models
 - **Suitable for**: Advanced nuclear theory
 
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/nuclear-physics/nuclear-scaling-mixture-v4.html" target="_blank">`nuclear-scaling-mixture-v4.html`</a>
+### <a href="https://tracyphasespace.github.io/Quantum-Field-Dynamics/visualizations/nuclear-physics/nuclear-scaling-mixture-v4.html" target="_blank">`nuclear-scaling-mixture-v4.html`</a>
 **Nuclear Scaling Mixture Model (Version 4)**
 - Latest nuclear scaling visualization
 - Refined theoretical framework
@@ -227,14 +240,3 @@ visualizations/
 ---
 
 *Visual learning pathway from basic concepts to breakthrough computational physics*
-
----
-
-## 🆕 **New: Photon Soliton Canon**
-
-### <a href="https://tracyphasespace.github.io/QFD-Universe/visualizations/PhotonSolitonCanon.html" target="_blank">`PhotonSolitonCanon.html`</a>
-**3D Photon Soliton Dynamics**
-- Real-time photon field evolution using Three.js
-- Phase space trajectories
-- Driven nonlinear oscillator behavior
-- **Suitable for**: Field theory research, GPU-accelerated visualization
