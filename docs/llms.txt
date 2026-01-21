@@ -2,10 +2,10 @@
 # Quantum Field Dynamics - Formal Proofs & Validation
 
 # STATISTICS
-total_files: 377
+total_files: 379
 lean_proofs: 241
-python_scripts: 41
-documentation: 85
+python_scripts: 42
+documentation: 86
 proven_theorems: 886
 proven_lemmas: 215
 sorries: 0
@@ -32,7 +32,7 @@ analysis/scripts/run_all_validations.py
 # /qfd/ - Core Python library
 
 
-# CORE DOCUMENTATION (85 files)
+# CORE DOCUMENTATION (86 files)
 ALL_LEAN_PROOFS.md
 ALL_SCRIPTS.md
 CL33_METHODOLOGY.md
@@ -43,6 +43,7 @@ analysis/nuclear/README.md
 analysis/reports/FINAL_VALIDATION_REPORT.md
 docs/REPLICATION.md
 docs/raw_index.md
+docs/visualizations/README.md
 formalization/QFD/AGENTS.md
 formalization/QFD/AXIOM_AUDIT.md
 formalization/QFD/Atomic/ATOMIC_SPECTROSCOPY_COMPLETE.md
@@ -362,7 +363,7 @@ formalization/QFD/Weak/ChiralAnomaly.lean
 formalization/QFD/Weak/DoubleBetaDecay.lean
 formalization/QFD/Weak/PionGeometry.lean
 
-# PYTHON CODE (41 files)
+# PYTHON CODE (42 files)
 analysis/nuclear/scripts/analyze_all_decay_transitions.py
 analysis/nuclear/scripts/integer_ladder_test.py
 analysis/nuclear/scripts/nucleus_classifier.py
@@ -387,6 +388,7 @@ analysis/src/harmonic_model.py
 analysis/src/parse_nubase.py
 analysis/src/two_center_model.py
 docs/generate_index.py
+docs/visualizations/nucleus_3d_interactive.py
 qfd/Cl33.py
 qfd/__init__.py
 qfd/shared_constants.py
